@@ -19,6 +19,7 @@ console.log(`A subtração dos números é: ${num1 - num2}`);
 console.log(`A multiplicação dos números é: ${num1 * num2}`);
 console.log(`A divisão dos números é: ${num1 / num2}`);
 console.log(`O resto da divisão dos números é: ${num1 % num2}`);
+console.log(`O número 1 elevado a potência do número 2: ${num1 ** num2}`);
 ~~~
 
 Em cada umas das operações, temos um operador aritmético.
@@ -28,6 +29,7 @@ Em cada umas das operações, temos um operador aritmético.
 * `*` -> multiplicação
 * `/` -> divisão
 * `%` -> resto da divisão
+* `**` -> potência
 
 
 ## operadores-de-atribuicao.js
@@ -61,3 +63,31 @@ Operadores de atribuição:
 * `%=` -> atribuição com resto da divisão
 * `++` -> atribuição com ***incremento 1*** (pode ser *pré* ou *pós* incrementado)
 * `--` -> atribuição com **decremento 1** (pode ser *pré* ou *pós* decrementado)
+
+## operadores-comparacao 
+
+Neste arquivo conhecemos os operadores de comparação e a estrutura lógica de decisão **if-else**.
+
+~~~js
+const a = 50, b = '50';
+const condicao = a !== b;
+
+if (condicao) {
+console.log('\n\x1b[32m VERDADEIRO! \n\x1b[0m')
+}else {
+    console.log('\n \x1b[31m FALSO \n\x1b[0m')
+}
+~~~
+
+Aqui declaramos as variáveis 'a' e 'b' e a variável 'codicao' para armazenar os resultados da comparação entre elas. Em seguida usamos a estrutura 'if-else' para conferir o resultado da comparação.
+
+Operadores de comparação:
+
+* `>` -> maior que
+* `<` -> menor que
+* `>=` -> maior OU igual que
+* `<=` -> menor OU igual que
+* `==` -> igual a
+* `===` ->  extritamente igual a
+* `!=` ->  NÃO igual a
+* `!==` ->  extritamente NÃO igual a
