@@ -16,7 +16,3 @@ if (media <= 5) {
 }else {
     console.log('\x1b[33mExame! \x1b[0m')
 }
-
-
-// Desafio 2 
-

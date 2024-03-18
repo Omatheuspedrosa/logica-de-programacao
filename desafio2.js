@@ -4,25 +4,19 @@ const calculoImc = peso / altura ** 2;
 const imc = calculoImc.toFixed(2);
 
 if (imc <= 18.5) {
-    window.alert(`IMC: ${imc}`)
-    window.alert('Abaixo do peso')
+    window.alert(`IMC: ${imc} \nAbaixo do peso`)
 }else if (imc <= 24.9) {
-    window.alert(`IMC: ${imc}`)
-    window.alert('Peso normal')
+    window.alert(`IMC: ${imc} \nPeso normal`)
 }
 else if (imc <= 29.9) {
-    window.alert(`IMC: ${imc}`)
-    window.alert('Sobrepeso')
+    window.alert(`IMC: ${imc} \nSobrepeso`)
 }
 else if (imc <= 34.9) {
-    window.alert(`IMC: ${imc}`)
-    window.alert('Obesidade grau I')
+    window.alert(`IMC: ${imc} \nObesidade grau I`)
 }
 else if (imc <= 39.9) {
-    window.alert(`IMC: ${imc}`)
-    window.alert('Obesidade grau II')
+    window.alert(`IMC: ${imc} \nObesidade grau II`)
 }
 else {
-    window.alert(`IMC: ${imc}`)
-    window.alert('Obesidade grau III')
+    window.alert(`IMC: ${imc} \nObesidade grau III`)
 }
