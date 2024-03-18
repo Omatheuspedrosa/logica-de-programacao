@@ -2,13 +2,12 @@ const
     nota1 = Math.floor(Math.random() * 10) +1,
     nota2 = Math.floor(Math.random() * 10) +1,
     nota3 = Math.floor(Math.random() * 10) +1,
-    calculo  = (nota1 + nota2 + nota3) / 3,
-    media = calculo.toFixed(2);
+    media = (nota1 + nota2 + nota3) / 3;
 
 console.log(`Nota 1: ${nota1}`)
 console.log(`Nota 2: ${nota2}`)
 console.log(`Nota 3: ${nota3}`)
-console.log(`\nMédia: ${media}`)
+console.log(`\nMédia: ${media.toFixed(2)}`)
 
 if (media <= 5) {
     console.log('\x1b[31mReprovado! \x1b[0m')
