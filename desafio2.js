@@ -1,22 +1,22 @@
-const altura = window.prompt("Digite sua altura:");
-const peso = window.prompt("Digite o seu peso:");
-const calculoImc = peso / altura ** 2;
-const imc = calculoImc.toFixed(2);
+const 
+    altura = window.prompt("Digite sua altura:"),
+    peso = window.prompt("Digite o seu peso:"),
+    imc = peso / altura ** 2;
 
 if (imc <= 18.5) {
-    window.alert(`IMC: ${imc} \nAbaixo do peso`)
+    window.alert(`IMC: ${imc.toFixed(2)} \nAbaixo do peso`)
 }else if (imc <= 24.9) {
-    window.alert(`IMC: ${imc} \nPeso normal`)
+    window.alert(`IMC: ${imc.toFixed(2)} \nPeso normal`)
 }
 else if (imc <= 29.9) {
-    window.alert(`IMC: ${imc} \nSobrepeso`)
+    window.alert(`IMC: ${imc.toFixed(2)} \nSobrepeso`)
 }
 else if (imc <= 34.9) {
-    window.alert(`IMC: ${imc} \nObesidade grau I`)
+    window.alert(`IMC: ${imc.toFixed(2)} \nObesidade grau I`)
 }
 else if (imc <= 39.9) {
-    window.alert(`IMC: ${imc} \nObesidade grau II`)
+    window.alert(`IMC: ${imc.toFixed(2)} \nObesidade grau II`)
 }
 else {
-    window.alert(`IMC: ${imc} \nObesidade grau III`)
+    window.alert(`IMC: ${imc.toFixed(2)} \nObesidade grau III`)
 }
