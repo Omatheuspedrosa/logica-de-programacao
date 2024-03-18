@@ -3,7 +3,7 @@ const
     peso = window.prompt("Digite o seu peso:"),
     imc = peso / altura ** 2;
 
-if (imc <= 18.5) {
+if (imc < 18.5) {
     window.alert(`IMC: ${imc.toFixed(2)} \nAbaixo do peso`)
 }else if (imc <= 24.9) {
     window.alert(`IMC: ${imc.toFixed(2)} \nPeso normal`)
