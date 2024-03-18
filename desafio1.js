@@ -1,8 +1,9 @@
-const nota1 = Math.floor(Math.random() * 10) +1;
-const nota2 = Math.floor(Math.random() * 10) +1;
-const nota3 = Math.floor(Math.random() * 10) +1;
-const calculo  = (nota1 + nota2 + nota3) / 3;
-const media = calculo.toFixed(2)
+const 
+    nota1 = Math.floor(Math.random() * 10) +1,
+    nota2 = Math.floor(Math.random() * 10) +1,
+    nota3 = Math.floor(Math.random() * 10) +1,
+    calculo  = (nota1 + nota2 + nota3) / 3,
+    media = calculo.toFixed(2);
 
 console.log(`Nota 1: ${nota1}`)
 console.log(`Nota 2: ${nota2}`)
