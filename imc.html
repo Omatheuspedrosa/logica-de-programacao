@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalculoIMC</title>
+
+    <style>
+
+        #calculadoraImc {
+            margin: 100px auto;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+            padding: 25px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="calculadoraImc">
+        <label for="altura">Altura:<br><input type="text" id="altura"></label><br>
+        <label for="peso">Peso:<br><input type="text" id="peso"></label><br>
+        <button onclick="calcularImc()">Calcular IMC</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script src="desafioImc.js"></script>
+</body>
+</html>
