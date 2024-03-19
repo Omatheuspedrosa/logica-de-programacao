@@ -1,4 +1,4 @@
-let temperaturaAtual = window.prompt('Temperatura atual: ');
+let temperaturaAtual = parseFloat(window.prompt('Temperatura atual: '));
 const escalaAtual = window.prompt("Escolha a escala atual:\nF - Fahrenheit \nC - Celsius \nK - Kelvin").toUpperCase();
 const conversao = window.prompt('Escolha a escala a ser convertida: \nF - Fahrenheit \nC - Celsius \nK - Kelvin').toUpperCase();
 let calculo = 0;
@@ -22,4 +22,7 @@ if (escalaAtual === 'C' && conversao === 'F') {
 }else if (escalaAtual === 'K' && conversao === 'F'){
     calculo = (temperaturaAtual * 1) * 9/5 - 459.67;
     window.alert(`${temperaturaAtual}° Kelvin para Fahrenheit: ${calculo.toFixed(2)}°F`);
+}
+else {
+    window.alert('Utilize entradas válidas')
 }
