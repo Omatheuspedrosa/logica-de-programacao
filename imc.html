@@ -8,6 +8,7 @@
     <style>
 
         #calculadoraImc {
+            background-color: #c1c5c7;
             margin: 100px auto;
             border: 1px solid black;
             height: 300px;
@@ -19,16 +20,21 @@
             margin-top: 10px;
         }
 
+        input {
+            border-radius: 5px;
+        }
+
     </style>
 
 </head>
 <body>
     
     <div id="calculadoraImc">
-        <label for="altura">Altura:<br><input type="text" id="altura"></label><br>
+        <label for="altura">Altura:<br><input type="text" id="altura"></label><br><br>
         <label for="peso">Peso:<br><input type="text" id="peso"></label><br>
         <button onclick="calcularImc()">Calcular IMC</button>
         <p id="resultado"></p>
+        <p id="categoria"></p>
     </div>
 
     <script src="desafioImc.js"></script>
