@@ -1,7 +1,8 @@
+function calcularIMC() {
 const 
-    altura = window.prompt("Digite sua altura:"),
-    peso = window.prompt("Digite o seu peso:"),
-    imc = peso / altura ** 2;
+altura = window.prompt("Digite sua altura:"),
+peso = window.prompt("Digite o seu peso:"),
+imc = peso / altura ** 2;
 
 if (imc < 18.5) {
     window.alert(`IMC: ${imc.toFixed(2)} \nAbaixo do peso`)
@@ -19,4 +20,5 @@ else if (imc <= 39.9) {
 }
 else {
     window.alert(`IMC: ${imc.toFixed(2)} \nObesidade grau III`)
+}
 }

@@ -1,3 +1,4 @@
+function converterTemperatura() {
 let temperaturaAtual = parseFloat(window.prompt('Temperatura atual: '));
 if (!isNaN(temperaturaAtual)) {
     const escalaAtual = window.prompt("Escolha a escala atual:\nF - Fahrenheit \nC - Celsius \nK - Kelvin").toUpperCase();
@@ -38,4 +39,5 @@ if (!isNaN(temperaturaAtual)) {
     
 }else {
     window.alert('Você digitou uma temperatura inválida. Recarregue a página e tente novamente');
+}
 }
