@@ -56,9 +56,9 @@
 
             if (atual === 'celsius') {
                 if (conversao === 'fahrenheit') {
-                    saida = (temperatura * 9/5) + 32 + ' °F';
+                    saida = ((temperatura * 9/5) + 32).toFixed(2) + ' °F';
                 }else if (conversao === 'kelvin') {
-                    saida = temperatura + 273.15 + ' °K';
+                    saida = (temperatura + 273.15).toFixed(2) + ' °K';
                 }else if (atual === conversao) {
                     saida = 'Utilize escalas diferentes!';
                 }  
@@ -66,9 +66,9 @@
 
             if (atual === 'fahrenheit') {
                 if (conversao === 'celsius'){
-                    saida = (temperatura - 32) * 5/9 + ' °C';
+                    saida = ((temperatura - 32) * 5/9).toFixed(2) + ' °C';
                 }else if (conversao === 'kelvin'){
-                    saida = (temperatura + 459.67) * 5/9 + ' °K';
+                    saida = ((temperatura + 459.67) * 5/9).toFixed(2) + ' °K';
                 }else if (atual === conversao) {
                     saida = 'Utilize escalas diferentes!';
                 }  
@@ -76,9 +76,9 @@
 
             if (atual === 'kelvin') {
                 if (conversao === 'celsius'){
-                    saida = temperatura - 273.15 + ' °C';
+                    saida = (temperatura - 273.15).toFixed(2) + ' °C';
                 }else if (conversao === 'fahrenheit'){
-                    saida = (temperatura * 9/5 - 459,67) + ' °F';
+                    saida = (temperatura * 9/5 - 459,67).toFixed(2) + ' °F';
                 }else if (atual === conversao) {
                     saida = 'Utilize escalas diferentes!';
                 }  
