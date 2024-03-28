@@ -1,0 +1,105 @@
+<!-- Escreva um programa que leia as medidas dos lados de um triângulo e escreva sua classificação de acordo com o tamanho dos seus lados:
+
+Equilátero: todos os lados tem o mesmo tamanho
+Isósceles: dois lados tem o mesmo tamanho, mas o terceiro é diferente
+Escaleno: os três lados do triângulo tem tamanhos diferentes
+Observação: é preciso verificar se os lados informados são realmente de um triângulo, ou seja, se a forma pode ser "fechada". Para isso, os lados da forma devem atender a TODAS as seguintes condições:
+
+ladoA < (ladoB + ladoC)
+ladoB < (ladoA + ladoC)
+ladoC < (ladoA + ladoB) -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Triângulo</title>
+
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            width: 120px;
+        }
+
+        button {
+            width: 80px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        button.btnVerificar {
+            background-color: #1c36fe;
+            color: white;
+            border-radius: 125px;
+            height: 25px;
+        }
+
+        button.btnLimpar {
+            background-color: rgb(255, 0, 0);
+            color: white;
+            border-radius: 125px;
+            height: 25px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h1>Calculo de Triângulo</h1>
+
+    <section>
+
+        <form action="">
+            <label for="ladoA">Lado A</label>
+            <input type="text" id="ladoA"><br>
+            <label for="ladoB">Lado B</label>
+            <input type="text" id="ladoB"><br>
+            <label for="ladoC">Lado C</label>
+            <input type="text" id="ladoC"><br>
+        </form>
+        
+        <button type="button" onclick="verificarTriangulo()" class="btnVerificar">Verificar</button>
+
+        <button type="button" onclick="resetar()" class="btnLimpar">Limpar</button>
+
+        <p id="resultado"></p>
+    </section>
+
+    <script>
+
+        function verificarTriangulo() {
+            var ladoA = parseFloat(document.getElementById('ladoA').value);
+            var ladoB = parseFloat(document.getElementById('ladoB').value);
+            var ladoC = parseFloat(document.getElementById('ladoC').value);
+
+            if (ladoA < ladoB + ladoC && ladoB < ladoA + ladoC && ladoC < ladoA + ladoB)  {
+                if (ladoA === ladoB && ladoB === ladoC) {
+                    document.getElementById("resultado").innerHTML = "Triângulo Equilátero";
+                } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
+                    document.getElementById("resultado").innerHTML = 'Triângulo Isósceles';
+                }else {
+                    document.getElementById("resultado").innerHTML = "Triângulo Escaleno"
+                }
+
+            }else {
+                document.getElementById("resultado").innerHTML = "Os lados informados não formam um triângulo";
+            }
+        }
+
+        function resetar() {
+            let ladoA = parseFloat(document.getElementById('ladoA').value = "");
+            let ladoB = parseFloat(document.getElementById('ladoB').value = "");
+            let ladoC = parseFloat(document.getElementById('ladoC').value = "");
+            document.getElementById("resultado").innerHTML = "";
+
+        }
+
+    </script>
+</body>
+</html>
