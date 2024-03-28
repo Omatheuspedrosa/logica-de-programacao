@@ -24,6 +24,8 @@
     <!-- <button type="button" onclick="calcularIMC()">Calcular IMC</button>
     <button type="button" onclick="converterTemperatura()">Converter Temperatura</button> -->
 
+    <h1>Programs</h1>
+
     <h1>Calculadora IMC</h1>
 
     <label for="peso">Peso:</label>
@@ -42,7 +44,7 @@
         <h1>Conversor de Temperatura</h1>
         
         <label for="temperatura">Temperatura:</label>
-        <input type="number" id="temperatura">
+        <input type="number" id="temperatura" placeholder="Exemplo: 20.00">
         <label for="escalaAtual">Escala atual:</label>
         <select name="" id="escalaAtual">
             <option value="celsius">Celsius</option>
@@ -58,7 +60,9 @@
         </select>
     </form>
 
-    <br><button type="button" id="btConvert">Converter</button>
+    <br><button type="button" id="btConvert">Converter</button><br>
+    <br><button type="button" id="btReset">Resetar</button>
+
 
     <p id="saida"></p>
 
@@ -81,7 +85,7 @@
     <script>// Sript Conversor de temperatura
 
         document.querySelector('#btConvert').addEventListener('click', function() {
-            const temperatura = parseFloat(document.querySelector('#temperatura').value);
+            let temperatura = parseFloat(document.querySelector('#temperatura').value);
             const atual = document.querySelector('#escalaAtual').value;
             const conversao = document.querySelector('#conversao').value;
             var saida;
@@ -91,7 +95,7 @@
                 if (conversao === 'fahrenheit') {
                     saida = ((temperatura * 9/5) + 32).toFixed(2) + ' °F';
                 }else if (conversao === 'kelvin') {
-                    saida = (temperatura + 273.15).toFixed(2) + ' °K';
+                    saida = (temperatura + 273.15).toFixed(2) + ' K';
                 }else if (atual === conversao) {
                     saida = 'Utilize escalas diferentes!';
                 }  
@@ -101,7 +105,7 @@
                 if (conversao === 'celsius'){
                     saida = ((temperatura - 32) * 5/9).toFixed(2) + ' °C';
                 }else if (conversao === 'kelvin'){
-                    saida = ((temperatura + 459.67) * 5/9).toFixed(2) + ' °K';
+                    saida = ((temperatura + 459.67) * 5/9).toFixed(2) + ' K';
                 }else if (atual === conversao) {
                     saida = 'Utilize escalas diferentes!';
                 }  

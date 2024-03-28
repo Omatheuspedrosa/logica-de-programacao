@@ -47,7 +47,7 @@
     <script>
 
         document.querySelector('#btConvert').addEventListener('click', function() {
-            const temperatura = parseFloat(document.querySelector('#temperatura').value);
+            let temperatura = parseFloat(document.querySelector('#temperatura').value);
             const atual = document.querySelector('#escalaAtual').value;
             const conversao = document.querySelector('#conversao').value;
             var saida;
@@ -83,6 +83,7 @@
                     saida = 'Utilize escalas diferentes!';
                 }  
             }
+            
 
             document.querySelector('#saida').innerHTML = saida;
         })
