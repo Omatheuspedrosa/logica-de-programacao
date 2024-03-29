@@ -8,7 +8,12 @@
     <style>
 
         button {
-            padding: 10px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        input#btImcReset, input#btResetConvert {
+            padding: 5px;
             cursor: pointer;
         }
 
@@ -29,12 +34,13 @@
     <h1>Calculadora IMC</h1>
 
     <label for="peso">Peso:</label>
-    <input type="number" id="peso" step="0.5" min="0" max="1000">
+    <input type="number" id="peso" step="0.5" min="30" max="1000">
     
     <label for="altura">Altura:</label>
     <input type="number" id="altura" step="0.01" min="0" max="3">
 
     <button type="button" onclick="btCalcImc()">Calcular IMC</button>
+    <input type="reset" id="btImcReset">
     <p id="resultadoImc"></p>
 
     <hr>
@@ -44,13 +50,13 @@
         <h1>Conversor de Temperatura</h1>
         
         <label for="temperatura">Temperatura:</label>
-        <input type="number" id="temperatura" placeholder="Exemplo: 20.00">
+        <input type="number" id="temperatura" placeholder="Exemplo: 20.00"><br><br>
         <label for="escalaAtual">Escala atual:</label>
         <select name="" id="escalaAtual">
             <option value="celsius">Celsius</option>
             <option value="fahrenheit">Fahrenheit</option>
             <option value="kelvin">Kelvin</option>
-        </select>
+        </select><br><br>
 
         <label for="conversao">Escala para conversão:</label>
         <select name="" id="conversao">
@@ -60,16 +66,16 @@
         </select>
     </form>
 
-    <br><button type="button" id="btConvert">Converter</button><br>
-    <br><button type="button" id="btReset">Resetar</button>
+    <br><button type="button" id="btConvert">Converter</button>
+    <input type="reset" id="btResetConvert">
 
 
     <p id="saida"></p>
 
     
     
-    <!-- <script src="desafio3.js"></script>
-    <script src="desafio2.js"></script> -->
+    <!-- <script src="desafio3.js"></script> -->
+    <script src="desafio2.js"></script> 
     
     <script> // Sript cálculo de IMC
 
@@ -79,6 +85,12 @@
             const imc = calcularIMC(peso, altura);
             document.querySelector('#resultadoImc').innerHTML = imc;
         }
+
+        document.querySelector("#btImcReset").addEventListener('click', function(){
+            document.querySelector('#peso').value = "";
+            document.querySelector('#altura').value = "";
+            document.querySelector('#resultadoImc').innerHTML = "";
+        })
 
     </script>
 
@@ -122,6 +134,11 @@
             }
 
             document.querySelector('#saida').innerHTML = saida;
+        })
+
+        document.querySelector("#btResetConvert").addEventListener('click', function() {
+            document.querySelector('#temperatura').value = "";
+            document.querySelector('#saida').innerHTML = "";
         })
 
     </script>

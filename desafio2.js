@@ -1,6 +1,5 @@
 function calcularIMC(peso, altura) {
     const imc = peso / (altura ** 2);
-    let mensagem;
 
     if (imc < 18.5) {
         mensagem = (`IMC: ${imc.toFixed(2)} \nAbaixo do peso`);
