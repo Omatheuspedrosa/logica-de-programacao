@@ -46,6 +46,16 @@ ladoC < (ladoA + ladoB) -->
             border-radius: 125px;
             height: 25px;
         }
+
+        #triangulo {
+            width: 0;
+            height: 0;
+            border-left: 0 solid transparent;
+            border-right: 0 solid transparent;
+            border-bottom: 5cm solid black;
+            margin-top: 2cm;
+        }
+    
     </style>
 
 </head>
@@ -57,11 +67,11 @@ ladoC < (ladoA + ladoB) -->
 
         <form action="">
             <label for="ladoA">Lado A</label>
-            <input type="text" id="ladoA"><br>
+            <input type="number" id="ladoA"><br>
             <label for="ladoB">Lado B</label>
-            <input type="text" id="ladoB"><br>
+            <input type="number" id="ladoB"><br>
             <label for="ladoC">Lado C</label>
-            <input type="text" id="ladoC"><br>
+            <input type="number" id="ladoC"><br>
         </form>
         
         <button type="button" onclick="verificarTriangulo()" class="btnVerificar">Verificar</button>
@@ -69,6 +79,11 @@ ladoC < (ladoA + ladoB) -->
         <button type="button" onclick="resetar()" class="btnLimpar">Limpar</button>
 
         <p id="resultado"></p>
+
+        <div id="triangulo">
+
+        </div>
+
     </section>
 
     <script>
@@ -78,7 +93,7 @@ ladoC < (ladoA + ladoB) -->
             var ladoB = parseFloat(document.getElementById('ladoB').value);
             var ladoC = parseFloat(document.getElementById('ladoC').value);
 
-            if (ladoA < ladoB + ladoC && ladoB < ladoA + ladoC && ladoC < ladoA + ladoB)  {
+            if ((ladoA < (ladoB + ladoC)) || (ladoB < (ladoA + ladoC)) || (ladoC < (ladoA + ladoB)))  {
                 if (ladoA === ladoB && ladoB === ladoC) {
                     document.getElementById("resultado").innerHTML = "Triângulo Equilátero";
                 } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
@@ -87,16 +102,28 @@ ladoC < (ladoA + ladoB) -->
                     document.getElementById("resultado").innerHTML = "Triângulo Escaleno"
                 }
 
+                // Representação visual do triângulo
+                document.getElementById("triangulo").style.borderBottomWidth = ladoA + "cm";
+                document.getElementById("triangulo").style.borderLeftWidth = ladoB + "cm";
+                document.getElementById("triangulo").style.borderRightWidth = ladoC + "cm";
+
             }else {
                 document.getElementById("resultado").innerHTML = "Os lados informados não formam um triângulo";
             }
         }
 
         function resetar() {
+            
+            // Resetar valores
             let ladoA = parseFloat(document.getElementById('ladoA').value = "");
             let ladoB = parseFloat(document.getElementById('ladoB').value = "");
             let ladoC = parseFloat(document.getElementById('ladoC').value = "");
             document.getElementById("resultado").innerHTML = "";
+
+            // Resetar representação visual do triângulo
+            document.getElementById("triangulo").style.borderBottomWidth = 0 + "px";
+            document.getElementById("triangulo").style.borderLeftWidth = 0 + "px";
+            document.getElementById("triangulo").style.borderRightWidth = 0 + "px";
 
         }
 
