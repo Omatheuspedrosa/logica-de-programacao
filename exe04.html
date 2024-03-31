@@ -1,0 +1,130 @@
+<!-- Desenvolva um programa que permita a leitura dos nomes de 10 pessoas e armazene os nomes lidos em um vetor. Após isso, o programa deve pertmitir a leitura de mais um nome qualquer para ser efetuada uma busca entre os nomes inseridos anteriormente. O programa deve exibir a mensagem ACHEI caso encontre o nome e NÃO ACHEI caso não encontre o nome. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Nome</title>
+
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(235, 229, 229);
+        }
+
+        div {
+            width: 200px;
+            background-color: white;
+            padding: 10px;
+            display: block;
+            border-radius: 10px;
+        }
+
+        input{
+            height: 18px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        button {
+            height: 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div>
+        <label for="">1° Nome:</label><br>
+        <input type="text" id="nome1"><br>
+        <label for="">2° Nome:</label><br>
+        <input type="text" id="nome2"><br>
+        <label for="">3° Nome:</label><br>
+        <input type="text" id="nome3"><br>
+        <label for="">4° Nome:</label><br>
+        <input type="text" id="nome4"><br>
+        <label for="">5° Nome:</label><br>
+        <input type="text" id="nome5"><br>
+        <label for="">6° Nome:</label><br>
+        <input type="text" id="nome6"><br>
+        <label for="">7° Nome:</label><br>
+        <input type="text" id="nome7"><br>
+        <label for="">8° Nome:</label><br>
+        <input type="text" id="nome8"><br>
+        <label for="">9° Nome:</label><br>
+        <input type="text" id="nome9"><br>
+        <label for="">10° Nome:</label><br>
+        <input type="text" id="nome10"><br>
+
+        <label for="busca"><strong>Buscar nome:</strong></label>
+        <input type="text" id="busca">
+
+        <br>
+
+        <button type="button" onclick="consultarNome()">Consultar</button>
+
+        <p></p>
+
+    </div>
+    
+    <script>
+
+        function consultarNome() {
+            nomes = {
+                nome1: document.getElementById('nome1').value.toLowerCase(),
+                nome2: document.getElementById('nome2').value.toLowerCase(),
+                nome3: document.getElementById('nome3').value.toLowerCase(),
+                nome4: document.getElementById('nome4').value.toLowerCase(),
+                nome5: document.getElementById('nome5').value.toLowerCase(),
+                nome6: document.getElementById('nome6').value.toLowerCase(),
+                nome7: document.getElementById('nome7').value.toLowerCase(),
+                nome8: document.getElementById('nome8').value.toLowerCase(),
+                nome9: document.getElementById('nome9').value.toLowerCase(),
+                nome10: document.getElementById('nome10').value.toLowerCase(),
+            }
+            
+            nomeAbuscar = document.getElementById('busca').value.toLowerCase();
+
+            if (nomeAbuscar === nomes.nome1) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome2) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome3) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome4) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome5) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome6) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome7) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome8) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome9) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }else if (nomeAbuscar === nomes.nome10) {
+                document.querySelector('p').innerHTML = "Achei!";
+            }
+            else {
+                document.querySelector('p').innerHTML = "Não achei!";
+            }
+
+        }
+
+    </script>
+</body>
+</html>
