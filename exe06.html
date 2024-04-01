@@ -62,6 +62,11 @@ mais que 10	    5% -->
         button:hover {
             background-color: #0056b3;
         }
+
+        #msgErro {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 
 
@@ -81,6 +86,7 @@ mais que 10	    5% -->
 
         <p id="desconto"></p>
         <p id="totalProdutos"></p>
+        <p id="msgErro"></p>
     </div>
 
 
@@ -89,13 +95,24 @@ mais que 10	    5% -->
         let contador = 0;
         produtos = [];
         document.getElementById('btCadastrar').addEventListener('click', function() {
-            produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
-            console.log(produtos);
-            contador += parseInt(document.getElementById('quantidade').value);
 
-            // Limpa os campos
-            document.getElementById('codigo').value = '';
-            document.getElementById('quantidade').value = '';
+            quantidade = document.getElementById('quantidade').value;
+            if (quantidade === "" || quantidade <= 0) {
+                document.querySelector('#msgErro').innerHTML = 'Você precisa digitar uma quantidade!';
+            }else {
+                document.querySelector('#msgErro').innerHTML = "";
+                produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
+                // console.log(produtos);
+                contador += parseInt(document.getElementById('quantidade').value);
+
+                // Limpa os campos
+                document.getElementById('codigo').value = '';
+                document.getElementById('quantidade').value = '';
+                document.getElementById('desconto').innerHTML = '';
+                document.getElementById('totalProdutos').innerHTML = '';
+            }
+
+            
         })
 
         document.getElementById('btFinalizar').addEventListener('click', function() {
