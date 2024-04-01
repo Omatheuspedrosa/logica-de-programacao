@@ -81,11 +81,27 @@ Gasolina: R$ 5,19 -->
         button {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #a09797;
+            background-color: #ff0000;
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+        }
+
+        button:hover {
+            color: #c7bcbc;
+        }
+
+        #resultado {
+            color: green;
+        }
+
+        #msgErro {
+            color: red;
+        }
+
+        #erroLitros {
+            color: red;
         }
 
     </style>
@@ -121,19 +137,77 @@ Gasolina: R$ 5,19 -->
             </tr>
         </table>
 
-        <label for="">Total de litros:</label>
-        <input type="number" min="0"><br>
+        <label for="litros">Total de litros:</label>
+        <input type="number" min="0" max="105" id="litros"><br>
 
-        <br><label for="">Código do combustível:</label>
-        <input type="text"><br>
+        <p id="erroLitros"></p>
 
-        <button type="button">Total</button>
-        <button type="button">Limpar</button>
+        <br><label for="codigo">Código do combustível:</label>
+        <input type="text" id="codigo"><br>
+        <p id="msgErro"></p>
 
-        <p></p>
-        <p></p>
+        <button type="button" onclick="calcularPreco()">Total</button>
+        <button type="button" onclick="Limpar()">Limpar</button>
+
+        <p id="resultado"></p>
 
     </div>
     
+    <script>
+
+        function calcularPreco() {
+            let alcool = 2.89;
+            let gasolina = 5.19;
+            const totalLitros = document.getElementById('litros').value;
+            const codigo = document.getElementById('codigo').value.toUpperCase();
+
+            if (totalLitros < 1 || totalLitros > 105) {
+                document.getElementById('erroLitros').innerHTML = "Quantidade inválida! capacidade de abastecimento: 1 a 105L"
+                document.getElementById('litros').setAttribute("style", "border: 1px solid red;")
+            }else {
+                if (codigo === 'A') {
+                    if (totalLitros <= 20){
+                        alcool -= 0.0867;
+                        total = totalLitros * alcool;
+                        document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
+                        document.getElementById('msgErro').innerHTML = "";
+                    }else {
+                        alcool -= 0.1445;
+                        total = totalLitros * alcool;
+                        document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
+                        document.getElementById('msgErro').innerHTML = "";
+                    }
+                }else if (codigo === 'G') {
+                    if (totalLitros <= 20){
+                        gasolina -= 0.2076;
+                        total = totalLitros * gasolina;
+                        document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
+                        document.getElementById('msgErro').innerHTML = "";
+                    }else {
+                        gasolina -= 0.3114;
+                        total = totalLitros * gasolina;
+                        document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
+                        document.getElementById('msgErro').innerHTML = "";
+                    }
+                }else {
+                    document.getElementById('msgErro').innerHTML = "Código inválido! informe o 'A'para Álcoo e 'G' para Gasolina"
+                    document.getElementById('resultado').innerHTML = "";
+                }
+            }
+
+
+        }
+
+        function Limpar() {
+            document.getElementById('litros').value = "";
+            document.getElementById('codigo').value = "";
+            document.getElementById('msgErro').innerHTML = "";
+            document.getElementById('resultado').innerHTML = "";
+            document.getElementById('erroLitros').innerHTML = "";
+            document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;")
+            document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;")
+        }
+
+    </script>
 </body>
 </html>
