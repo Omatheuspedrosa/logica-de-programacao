@@ -104,6 +104,10 @@ Gasolina: R$ 5,19 -->
             color: red;
         }
 
+        p {
+            font-weight: bold;
+        }
+
     </style>
     
 </head>
@@ -156,6 +160,10 @@ Gasolina: R$ 5,19 -->
     <script>
 
         function calcularPreco() {
+
+            document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
+            document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
+
             let alcool = 2.89;
             let gasolina = 5.19;
             const totalLitros = document.getElementById('litros').value;
@@ -171,11 +179,15 @@ Gasolina: R$ 5,19 -->
                         total = totalLitros * alcool;
                         document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
                         document.getElementById('msgErro').innerHTML = "";
+                        document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
                     }else {
                         alcool -= 0.1445;
                         total = totalLitros * alcool;
                         document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
                         document.getElementById('msgErro').innerHTML = "";
+                        document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
                     }
                 }else if (codigo === 'G') {
                     if (totalLitros <= 20){
@@ -183,14 +195,19 @@ Gasolina: R$ 5,19 -->
                         total = totalLitros * gasolina;
                         document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
                         document.getElementById('msgErro').innerHTML = "";
+                        document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
                     }else {
                         gasolina -= 0.3114;
                         total = totalLitros * gasolina;
                         document.getElementById('resultado').innerHTML = `Total a pagar R$${total.toFixed(2)}`;
                         document.getElementById('msgErro').innerHTML = "";
+                        document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
                     }
                 }else {
-                    document.getElementById('msgErro').innerHTML = "Código inválido! informe o 'A'para Álcoo e 'G' para Gasolina"
+                    document.getElementById('msgErro').innerHTML = "Código inválido! informe 'A' para Álcool e 'G' para Gasolina"
+                    document.getElementById('codigo').setAttribute("style", "border: 1px solid red;")
                     document.getElementById('resultado').innerHTML = "";
                 }
             }

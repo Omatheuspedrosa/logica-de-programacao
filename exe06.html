@@ -1,0 +1,125 @@
+<!-- Desenvolva um programa que calcule o desconto da compra de produtos baseado na quantidade de produtos comprados.
+
+O programa deve ler o código do produto e a quantidade adquirida. Você pode utilizar uma estrutura de dados JSON para armazenar as informações dos produtos.
+
+Quantidade	Desconto
+3 até 5	        2%
+6 a 10	        3%
+mais que 10	    5% -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos com Desconto</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <label for="codigo">Código do produto:</label>
+        <input type="number" id="codigo">
+        
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" min="1" id="quantidade">
+
+        <button type="button" id="btCadastrar">Cadastrar</button>
+        <button type="button" id="btFinalizar">Finalizar</button>
+
+        <p id="desconto"></p>
+        <p id="totalProdutos"></p>
+    </div>
+
+
+    <script>
+
+        let contador = 0;
+        produtos = [];
+        document.getElementById('btCadastrar').addEventListener('click', function() {
+            produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
+            console.log(produtos);
+            contador += parseInt(document.getElementById('quantidade').value);
+
+            // Limpa os campos
+            document.getElementById('codigo').value = '';
+            document.getElementById('quantidade').value = '';
+        })
+
+        document.getElementById('btFinalizar').addEventListener('click', function() {
+
+            if (contador < 3) {
+                document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
+                document.querySelector('#desconto').innerHTML = 'Sem desconto';
+                
+            }else if (contador >= 3 && contador <= 5) {
+                document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
+                document.querySelector('#desconto').innerHTML = '2% de desconto';
+            }else if (contador >= 6 && contador <= 10) {
+                document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
+                document.querySelector('#desconto').innerHTML = '3% de desconto';
+            }else {
+                document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
+                document.querySelector('#desconto').innerHTML = '5% de desconto';
+            }
+
+            produtos = [];
+            
+        })
+
+
+    </script>
+</body>
+</html>
