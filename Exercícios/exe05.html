@@ -88,9 +88,17 @@ Gasolina: R$ 5,19 -->
             cursor: pointer;
         }
 
-        button:hover {
+        button.btLimpar {
+            background-color: white;
+            border: none;
+            color: #ff0000;
+        }
+
+        button:hover, .btLimpar:hover {
             color: #c7bcbc;
         }
+
+        
 
         #resultado {
             color: green;
@@ -151,7 +159,7 @@ Gasolina: R$ 5,19 -->
         <p id="msgErro"></p>
 
         <button type="button" onclick="calcularPreco()">Total</button>
-        <button type="button" onclick="Limpar()">Limpar</button>
+        <button type="button" onclick="Limpar()" class="btLimpar"><i class="fa-solid fa-trash-can fa-2xl"></i></button>
 
         <p id="resultado"></p>
 
