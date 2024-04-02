@@ -52,8 +52,8 @@ ladoC < (ladoA + ladoB) -->
             height: 0;
             border-left: 0 solid transparent;
             border-right: 0 solid transparent;
-            border-bottom: 5cm solid black;
-            margin-top: 2cm;
+            border-bottom: 0 solid black;
+            margin-top: 20px;
         }
     
     </style>
@@ -93,7 +93,7 @@ ladoC < (ladoA + ladoB) -->
             var ladoB = parseFloat(document.getElementById('ladoB').value);
             var ladoC = parseFloat(document.getElementById('ladoC').value);
 
-            if ((ladoA < (ladoB + ladoC)) || (ladoB < (ladoA + ladoC)) || (ladoC < (ladoA + ladoB)))  {
+            if ((ladoA < (ladoB + ladoC)) && (ladoB < (ladoA + ladoC)) && (ladoC < (ladoA + ladoB)))  {
                 if (ladoA === ladoB && ladoB === ladoC) {
                     document.getElementById("resultado").innerHTML = "Triângulo Equilátero";
                 } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
@@ -103,9 +103,9 @@ ladoC < (ladoA + ladoB) -->
                 }
 
                 // Representação visual do triângulo
-                document.getElementById("triangulo").style.borderBottomWidth = ladoA + "cm";
-                document.getElementById("triangulo").style.borderLeftWidth = ladoB + "cm";
-                document.getElementById("triangulo").style.borderRightWidth = ladoC + "cm";
+                document.getElementById("triangulo").style.borderBottomWidth = ladoA + "px";
+                document.getElementById("triangulo").style.borderLeftWidth = ladoB + "px";
+                document.getElementById("triangulo").style.borderRightWidth = ladoC + "px";
 
             }else {
                 document.getElementById("resultado").innerHTML = "Os lados informados não formam um triângulo";

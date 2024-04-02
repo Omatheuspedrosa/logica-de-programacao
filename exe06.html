@@ -98,11 +98,10 @@ mais que 10	    5% -->
 
             quantidade = document.getElementById('quantidade').value;
             if (quantidade === "" || quantidade <= 0) {
-                document.querySelector('#msgErro').innerHTML = 'Você precisa digitar uma quantidade!';
+                document.querySelector('#msgErro').innerHTML = 'Digite uma quantidade válida!';
             }else {
                 document.querySelector('#msgErro').innerHTML = "";
                 produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
-                // console.log(produtos);
                 contador += parseInt(document.getElementById('quantidade').value);
 
                 // Limpa os campos
@@ -133,10 +132,10 @@ mais que 10	    5% -->
             }
 
             produtos = [];
+            contador = 0;
             
         })
-
-
+        
     </script>
 </body>
 </html>
