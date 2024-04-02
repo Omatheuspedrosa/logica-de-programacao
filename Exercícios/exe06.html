@@ -93,7 +93,7 @@ mais que 10	    5% -->
     <script>
 
         let contador = 0;
-        produtos = [];
+        produtos = {};
         document.getElementById('btCadastrar').addEventListener('click', function() {
 
             quantidade = document.getElementById('quantidade').value;
@@ -103,6 +103,7 @@ mais que 10	    5% -->
                 document.querySelector('#msgErro').innerHTML = "";
                 produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
                 contador += parseInt(document.getElementById('quantidade').value);
+                // console.log(produtos)
 
                 // Limpa os campos
                 document.getElementById('codigo').value = '';
@@ -131,7 +132,7 @@ mais que 10	    5% -->
                 document.querySelector('#desconto').innerHTML = '5% de desconto';
             }
 
-            produtos = [];
+            produtos = {};
             contador = 0;
             
         })

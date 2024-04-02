@@ -1,0 +1,114 @@
+<!-- Desenvolva um programa que permita a leitura dos nomes de 10 pessoas e armazene os nomes lidos em um vetor. Após isso, o programa deve pertmitir a leitura de mais um nome qualquer para ser efetuada uma busca entre os nomes inseridos anteriormente. O programa deve exibir a mensagem ACHEI caso encontre o nome e NÃO ACHEI caso não encontre o nome. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Nome(teste)</title>
+
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(235, 229, 229);
+        }
+
+        div {
+            width: 200px;
+            background-color: white;
+            padding: 10px;
+            display: block;
+            border-radius: 10px;
+        }
+
+        input{
+            height: 18px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        button {
+            height: 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div>
+        
+        <label for="nome" id="idLabel"><span id="contNomes">1</span>° Nome:</label>
+        <input type="text" id="nome">
+
+        <br>
+
+        <button type="button" onclick="consultarNome()" id="botaoProximo">Próximo</button>
+        <button type="button" id="botaoFinalizar" disabled>Finalizar</button>
+
+        <p></p>
+
+    </div>
+    
+    <script>
+
+        contador = 1;
+        nomes = [];
+        function consultarNome() {
+             
+            if (contador < 3) {
+                nomes.push(document.getElementById('nome').value);
+                nome = document.getElementById('nome').value = "";
+                contador ++;
+                document.getElementById('contNomes').innerHTML = `${contador}`;
+            }else {
+                document.getElementById('idLabel').innerHTML = "Buscar Nome:";
+                document.getElementById('botaoProximo').disabled = true;
+                document.getElementById('botaoFinalizar').disabled = false;
+            }
+
+            console.log(nomes)
+            console.log(contador)
+
+            // if (nomeAbuscar === nomes.nome1) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome2) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome3) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome4) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome5) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome6) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome7) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome8) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome9) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }else if (nomeAbuscar === nomes.nome10) {
+            //     document.querySelector('p').innerHTML = "Achei!";
+            // }
+            // else {
+            //     document.querySelector('p').innerHTML = "Não achei!";
+            // }
+
+        }
+
+
+    </script>
+</body>
+</html>
