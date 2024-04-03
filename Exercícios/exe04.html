@@ -23,23 +23,51 @@
         div {
             width: 200px;
             background-color: white;
-            padding: 10px;
+            padding: 20px;
             display: block;
             border-radius: 10px;
         }
 
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
         input{
-            height: 18px;
+            height: 25px;
             margin-bottom: 15px;
             border-radius: 5px;
             border: 1px solid black;
+            width: calc(100% - 22px);
+            padding: 0 10px;
         }
 
         button {
-            height: 25px;
+            height: 30px;
             cursor: pointer;
             border-radius: 5px;
             border: 1px solid black;
+            background-color: rgb(221, 221, 19);
+            color: white;
+            margin-right: 10px;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        button:disabled:hover {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        button:hover {
+            background-color: rgb(240, 240, 67);
+        }
+
+        p {
+            margin-top: 15px;
         }
 
     </style>
@@ -83,9 +111,9 @@
         function buscarNome() {
             nomeAbuscar = document.getElementById('nome').value;
             if (nomes.includes(nomeAbuscar)) {
-                document.querySelector('p').innerHTML = "Achei";
+                document.querySelector('p').innerHTML = "Achei 😃";
             }else {
-                document.querySelector('p').innerHTML = "Não achei";
+                document.querySelector('p').innerHTML = "Não achei 😥";
             }
         }
 

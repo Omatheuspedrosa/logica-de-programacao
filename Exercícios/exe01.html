@@ -18,8 +18,16 @@ ladoC < (ladoA + ladoB) -->
     <title>Verificar Triângulo</title>
 
     <style>
-        form {
+
+        body {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            display: block;
             flex-direction: column;
         }
 
@@ -31,9 +39,12 @@ ladoC < (ladoA + ladoB) -->
             width: 80px;
             text-align: center;
             cursor: pointer;
+            margin-top: 40px;
+            margin-left: 20px; 
         }
 
         button.btnVerificar {
+            margin-left: 170px;
             background-color: #1c36fe;
             color: white;
             border-radius: 125px;
@@ -47,7 +58,12 @@ ladoC < (ladoA + ladoB) -->
             height: 25px;
         }
 
+        #resultado {
+            margin-left: 170px;
+        }
+
         #triangulo {
+            margin-left: 210px;
             width: 0;
             height: 0;
             border-left: 0 solid transparent;
@@ -61,15 +77,15 @@ ladoC < (ladoA + ladoB) -->
 </head>
 <body>
     
-    <h1>Calculo de Triângulo</h1>
+    <h1>Classificação de Triângulo</h1>
 
     <section>
 
         <form action="">
             <label for="ladoA">Lado A</label>
-            <input type="number" id="ladoA"><br>
+            <input type="number" id="ladoA">
             <label for="ladoB">Lado B</label>
-            <input type="number" id="ladoB"><br>
+            <input type="number" id="ladoB">
             <label for="ladoC">Lado C</label>
             <input type="number" id="ladoC"><br>
         </form>
