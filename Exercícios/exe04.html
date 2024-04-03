@@ -48,33 +48,14 @@
 <body>
 
     <div>
-        <label for="">1° Nome:</label><br>
-        <input type="text" id="nome1"><br>
-        <label for="">2° Nome:</label><br>
-        <input type="text" id="nome2"><br>
-        <label for="">3° Nome:</label><br>
-        <input type="text" id="nome3"><br>
-        <label for="">4° Nome:</label><br>
-        <input type="text" id="nome4"><br>
-        <label for="">5° Nome:</label><br>
-        <input type="text" id="nome5"><br>
-        <label for="">6° Nome:</label><br>
-        <input type="text" id="nome6"><br>
-        <label for="">7° Nome:</label><br>
-        <input type="text" id="nome7"><br>
-        <label for="">8° Nome:</label><br>
-        <input type="text" id="nome8"><br>
-        <label for="">9° Nome:</label><br>
-        <input type="text" id="nome9"><br>
-        <label for="">10° Nome:</label><br>
-        <input type="text" id="nome10"><br>
-
-        <label for="busca"><strong>Buscar nome:</strong></label>
-        <input type="text" id="busca">
+        
+        <label for="nome" id="idLabel"><span id="contNomes">1</span>° Nome:</label>
+        <input type="text" id="nome">
 
         <br>
 
-        <button type="button" onclick="consultarNome()">Consultar</button>
+        <button type="button" onclick="consultarNome()" id="botaoProximo">Próximo</button>
+        <button type="button" id="botaoFinalizar" disabled onclick="buscarNome()">Finalizar</button>
 
         <p></p>
 
@@ -82,47 +63,30 @@
     
     <script>
 
+        contador = 1;
+        nomes = [];
         function consultarNome() {
-            nomes = {
-                nome1: document.getElementById('nome1').value.toLowerCase(),
-                nome2: document.getElementById('nome2').value.toLowerCase(),
-                nome3: document.getElementById('nome3').value.toLowerCase(),
-                nome4: document.getElementById('nome4').value.toLowerCase(),
-                nome5: document.getElementById('nome5').value.toLowerCase(),
-                nome6: document.getElementById('nome6').value.toLowerCase(),
-                nome7: document.getElementById('nome7').value.toLowerCase(),
-                nome8: document.getElementById('nome8').value.toLowerCase(),
-                nome9: document.getElementById('nome9').value.toLowerCase(),
-                nome10: document.getElementById('nome10').value.toLowerCase(),
-            }
-            
-            nomeAbuscar = document.getElementById('busca').value.toLowerCase();
-
-            if (nomeAbuscar === nomes.nome1) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome2) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome3) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome4) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome5) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome6) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome7) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome8) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome9) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }else if (nomeAbuscar === nomes.nome10) {
-                document.querySelector('p').innerHTML = "Achei!";
-            }
-            else {
-                document.querySelector('p').innerHTML = "Não achei!";
+             
+            if (contador < 3) {
+                nomes.push(document.getElementById('nome').value);
+                nome = document.getElementById('nome').value = "";
+                contador ++;
+                document.getElementById('contNomes').innerHTML = `${contador}`;
+            }else {
+                document.getElementById('idLabel').innerHTML = "Buscar Nome:";
+                document.getElementById('botaoProximo').disabled = true;
+                document.getElementById('botaoFinalizar').disabled = false;
             }
 
+        }
+
+        function buscarNome() {
+            nomeAbuscar = document.getElementById('nome').value;
+            if (nomes.includes(nomeAbuscar)) {
+                document.querySelector('p').innerHTML = "Achei";
+            }else {
+                document.querySelector('p').innerHTML = "Não achei";
+            }
         }
 
     </script>
