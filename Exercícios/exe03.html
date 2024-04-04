@@ -9,7 +9,29 @@
 
     <style>
 
+        body {
+            display: flex;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 50px;
+        }
+
+        #container div{
+            /* display: flex; */
+            justify-content: space-between;
+            align-items: center;
+        }
+
         input {
+            height: 20px;
             width: 30px;
         }
 
@@ -24,17 +46,21 @@
 </head>
 <body>
     
-    <div>
+    <div id="container">
 
         <h1>Placar de futebol</h1>
 
-        <label for="time1">Time 1</label>
-        <input type="number" min="0" id="time1">
-        
-        <p style="display: inline;">X</p>
-        
-        <input type="number" min="0" id="time2">
-        <label for="time2">Time 2</label>
+        <div>
+
+            <label for="time1">Time 1</label>
+            <input type="number" min="0" id="time1">
+            
+            <p style="display: inline;">X</p>
+            
+            <input type="number" min="0" id="time2">
+            <label for="time2">Time 2</label>
+
+        </div>
 
         <br>
 
@@ -53,13 +79,31 @@
             let time1 = parseInt(document.getElementById('time1').value);
             let time2 = parseInt(document.getElementById('time2').value);
 
-            if (time1 > time2) {
+            if (isNaN(time1) || time1 < 0) {
+                resultado = document.getElementById('resultado').innerHTML = "Digite um número de gols válido ao time 1!";
+                document.getElementById('time1').setAttribute('style', "border: 1px solid red");
+                document.getElementById('time2').setAttribute('style', "border: 1px solid black");
+            }else if (isNaN(time2) || time2 < 0){
+                resultado = document.getElementById('resultado').innerHTML = "Digite um número de gols válido ao time 2!";
+                document.getElementById('time2').setAttribute('style', "border: 1px solid red");
+                document.getElementById('time1').setAttribute('style', "border: 1px solid black");
+            }else if (time1 > time2) {
                 resultado = document.getElementById('resultado').innerHTML = "Vitória do time 1";
+                document.getElementById('time1').setAttribute('style', "border: 2px solid green");
+                document.getElementById('time2').setAttribute('style', "border: 2px solid red");
             }else if (time2 > time1) {
                 resultado = document.getElementById('resultado').innerHTML = "Vitória do time 2";
+                document.getElementById('time1').setAttribute('style', "border: 2px solid red");
+                document.getElementById('time2').setAttribute('style', "border: 2px solid green");
             }else {
                 resultado = document.getElementById('resultado').innerHTML = "Empate";
+                document.getElementById('time1').setAttribute('style', "border: 2px solid yellow");
+                document.getElementById('time2').setAttribute('style', "border: 2px solid yellow    ");
             }
+            
+            
+            
+            
           
         }
 

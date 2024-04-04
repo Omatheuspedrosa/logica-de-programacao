@@ -6,14 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca de Nome</title>
+    <script src="https://kit.fontawesome.com/4d09d0aa20.js" crossorigin="anonymous"></script>
 
 
     <style>
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            margin: 20px 0;
+            margin: 0;
             padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,7 +23,7 @@
         }
 
         div {
-            width: 200px;
+            width: 300px;
             background-color: white;
             padding: 20px;
             display: block;
@@ -84,6 +86,7 @@
 
         <button type="button" onclick="consultarNome()" id="botaoProximo">Próximo</button>
         <button type="button" id="botaoFinalizar" disabled onclick="buscarNome()">Finalizar</button>
+        <a href="" onclick=""><i class="fa-solid fa-rotate-left" style="color: red;"></i></a>
 
         <p></p>
 
@@ -100,6 +103,7 @@
                 nome = document.getElementById('nome').value = "";
                 contador ++;
                 document.getElementById('contNomes').innerHTML = `${contador}`;
+                document.getElementById('nome').focus();
             }else {
                 document.getElementById('idLabel').innerHTML = "Buscar Nome:";
                 document.getElementById('botaoProximo').disabled = true;
@@ -115,6 +119,11 @@
             }else {
                 document.querySelector('p').innerHTML = "Não achei 😥";
             }
+        }
+
+        function resetar() {
+            contador = 1;
+            nomes = [];
         }
 
     </script>
