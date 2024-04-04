@@ -109,7 +109,7 @@ ladoC < (ladoA + ladoB) -->
             var ladoB = parseFloat(document.getElementById('ladoB').value);
             var ladoC = parseFloat(document.getElementById('ladoC').value);
 
-            if ((ladoA < (ladoB + ladoC)) && (ladoB < (ladoA + ladoC)) && (ladoC < (ladoA + ladoB)))  {
+            if (ladoA < ladoB + ladoC && ladoB < ladoA + ladoC && ladoC < ladoA + ladoB)  {
                 if (ladoA === ladoB && ladoB === ladoC) {
                     document.getElementById("resultado").innerHTML = "Triângulo Equilátero";
                 } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {

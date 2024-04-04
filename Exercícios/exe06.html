@@ -10,6 +10,7 @@ mais que 10	    5% -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,6 +68,18 @@ mais que 10	    5% -->
             color: red;
             font-weight: bold;
         }
+
+        th {
+            background-color: #04AA6D;;
+            color: white;
+        }
+
+        table, th, td {
+            border: 1px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            padding: 8px;
+        }
+
     </style>
 
 
@@ -77,7 +90,7 @@ mais que 10	    5% -->
     <div class="container">
         <label for="codigo">Código do produto:</label>
         <input type="number" id="codigo">
-        
+
         <label for="quantidade">Quantidade:</label>
         <input type="number" min="1" id="quantidade">
 
@@ -87,23 +100,55 @@ mais que 10	    5% -->
         <p id="desconto"></p>
         <p id="totalProdutos"></p>
         <p id="msgErro"></p>
+
+        <p class="">Produtos Inseridos:</p>
+
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Quantidade</th>
+            </tr>
+        </table>
+
+        <button type="button" class="novaConsulta" onclick="novaConsulta()">Novos Produtos</button>
+
+
     </div>
 
 
     <script>
 
+        var tabela = document.querySelector('table');
+        // document.querySelector('table').setAttribute('style', 'visibility: hidden');
+
         let contador = 0;
         produtos = {};
-        document.getElementById('btCadastrar').addEventListener('click', function() {
+        document.getElementById('btCadastrar').addEventListener('click', function () {
 
             quantidade = document.getElementById('quantidade').value;
             if (quantidade === "" || quantidade <= 0) {
                 document.querySelector('#msgErro').innerHTML = 'Digite uma quantidade válida!';
-            }else {
+            } else {
                 document.querySelector('#msgErro').innerHTML = "";
                 produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
                 contador += parseInt(document.getElementById('quantidade').value);
-                // console.log(produtos)
+
+
+                // Criar tabela
+                var novaLinhaNaTabela = document.createElement("tr");
+                tabela.appendChild(novaLinhaNaTabela);
+                var codigoProduto = document.createElement("td");
+                var quantidadeProduto = document.createElement("td");
+                
+                novaLinhaNaTabela.appendChild(codigoProduto);
+                novaLinhaNaTabela.appendChild(quantidadeProduto);
+
+                conteudoCodigo = document.createTextNode(document.getElementById('codigo').value);
+                conteudoQuantidade = document.createTextNode(document.getElementById('quantidade').value);
+
+                codigoProduto.appendChild(conteudoCodigo);
+                quantidadeProduto.appendChild(conteudoQuantidade);
+
 
                 // Limpa os campos
                 document.getElementById('codigo').value = '';
@@ -112,31 +157,39 @@ mais que 10	    5% -->
                 document.getElementById('totalProdutos').innerHTML = '';
             }
 
-            
+
         })
 
-        document.getElementById('btFinalizar').addEventListener('click', function() {
+        document.getElementById('btFinalizar').addEventListener('click', function () {
 
             if (contador < 3) {
                 document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
                 document.querySelector('#desconto').innerHTML = 'Sem desconto';
-                
-            }else if (contador >= 3 && contador <= 5) {
+
+            } else if (contador >= 3 && contador <= 5) {
                 document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
                 document.querySelector('#desconto').innerHTML = '2% de desconto';
-            }else if (contador >= 6 && contador <= 10) {
+            } else if (contador >= 6 && contador <= 10) {
                 document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
                 document.querySelector('#desconto').innerHTML = '3% de desconto';
-            }else {
+            } else {
                 document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
                 document.querySelector('#desconto').innerHTML = '5% de desconto';
             }
 
             produtos = {};
             contador = 0;
-            
+
+            // Exibir Tabela
+            document.querySelector('table').setAttribute('style', 'visibility: visible');
+
         })
-        
+
+        function novaConsulta() {
+            window.location.reload();
+        }
+
     </script>
 </body>
+
 </html>
