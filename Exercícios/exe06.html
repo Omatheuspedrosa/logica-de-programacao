@@ -39,7 +39,7 @@ mais que 10	    5% -->
             font-weight: bold;
         }
 
-        input[type="number"] {
+        input[type="number"], input{
             width: 100%;
             padding: 8px;
             margin-bottom: 15px;
@@ -93,7 +93,7 @@ mais que 10	    5% -->
 
         <div class="dados">
             <label for="codigo" class="primeiraLabel">Código do produto:</label>
-            <input type="number" id="codigo">
+            <input type="" id="codigo">
 
             <label for="quantidade" class="segundaLabel">Quantidade:</label>
             <input type="number" min="1" id="quantidade">
@@ -138,8 +138,8 @@ mais que 10	    5% -->
             quantidade = document.getElementById('quantidade').value;
             
             if (!codigo) {
-                document.getElementById('msgErro').innerHTML = 'Digite um código para o produtos';
-            } else if (quantidade === "" || quantidade <= 0) {
+                document.getElementById('msgErro').innerHTML = 'Digite um código para o produto';
+            } else if (!quantidade) {
                 document.querySelector('#msgErro').innerHTML = 'Digite uma quantidade válida!';
             }else {
                 document.querySelector('#msgErro').innerHTML = "";
@@ -157,7 +157,7 @@ mais que 10	    5% -->
                 novaLinhaNaTabela.appendChild(codigoProduto);
                 novaLinhaNaTabela.appendChild(quantidadeProduto);
 
-                conteudoCodigo = document.createTextNode(document.getElementById('codigo').value);
+                conteudoCodigo = document.createTextNode('#' + document.getElementById('codigo').value);
                 conteudoQuantidade = document.createTextNode(document.getElementById('quantidade').value);
 
                 codigoProduto.appendChild(conteudoCodigo);
