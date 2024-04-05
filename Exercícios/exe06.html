@@ -70,16 +70,18 @@ mais que 10	    5% -->
         }
 
         th {
-            background-color: #04AA6D;;
+            background-color: #04AA6D;
+            ;
             color: white;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid rgb(0, 0, 0);
             border-collapse: collapse;
             padding: 8px;
         }
-
     </style>
 
 
@@ -88,20 +90,23 @@ mais que 10	    5% -->
 <body>
 
     <div class="container">
-        <label for="codigo">Código do produto:</label>
-        <input type="number" id="codigo">
 
-        <label for="quantidade">Quantidade:</label>
-        <input type="number" min="1" id="quantidade">
+        <div class="dados">
+            <label for="codigo" class="primeiraLabel">Código do produto:</label>
+            <input type="number" id="codigo">
 
-        <button type="button" id="btCadastrar">Cadastrar</button>
-        <button type="button" id="btFinalizar">Finalizar</button>
+            <label for="quantidade" class="segundaLabel">Quantidade:</label>
+            <input type="number" min="1" id="quantidade">
+
+            <button type="button" id="btCadastrar">Cadastrar</button>
+            <button type="button" id="btFinalizar">Finalizar</button>
+        </div>
 
         <p id="desconto"></p>
         <p id="totalProdutos"></p>
         <p id="msgErro"></p>
 
-        <p class="">Produtos Inseridos:</p>
+        <p class="cabeçalhoTabela">Produtos Inseridos:</p>
 
         <table>
             <tr>
@@ -119,7 +124,11 @@ mais que 10	    5% -->
     <script>
 
         var tabela = document.querySelector('table');
-        // document.querySelector('table').setAttribute('style', 'visibility: hidden');
+
+        // Ocultar tabela
+        document.querySelector('table').setAttribute('style', 'display: none');
+        document.querySelector('.cabeçalhoTabela').setAttribute('style', 'display: none');
+        document.querySelector('.novaConsulta').setAttribute('style', 'display: none');
 
         let contador = 0;
         produtos = {};
@@ -132,6 +141,7 @@ mais que 10	    5% -->
                 document.querySelector('#msgErro').innerHTML = "";
                 produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
                 contador += parseInt(document.getElementById('quantidade').value);
+                document.getElementById('codigo').focus();
 
 
                 // Criar tabela
@@ -139,7 +149,7 @@ mais que 10	    5% -->
                 tabela.appendChild(novaLinhaNaTabela);
                 var codigoProduto = document.createElement("td");
                 var quantidadeProduto = document.createElement("td");
-                
+
                 novaLinhaNaTabela.appendChild(codigoProduto);
                 novaLinhaNaTabela.appendChild(quantidadeProduto);
 
@@ -180,8 +190,13 @@ mais que 10	    5% -->
             produtos = {};
             contador = 0;
 
-            // Exibir Tabela
-            document.querySelector('table').setAttribute('style', 'visibility: visible');
+            // Exibir Tabela e botão
+            document.querySelector('table').setAttribute('style', 'display: block; border: none');
+            document.querySelector('.cabeçalhoTabela').setAttribute('style', 'display: block');
+            document.querySelector('.novaConsulta').setAttribute('style', 'display: block');
+
+            // Limpar entradas e botões
+            document.querySelector('.dados').setAttribute('style', 'display: none')
 
         })
 
