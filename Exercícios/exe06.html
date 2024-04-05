@@ -134,10 +134,14 @@ mais que 10	    5% -->
         produtos = {};
         document.getElementById('btCadastrar').addEventListener('click', function () {
 
+            codigo = document.getElementById('codigo').value;
             quantidade = document.getElementById('quantidade').value;
-            if (quantidade === "" || quantidade <= 0) {
+            
+            if (!codigo) {
+                document.getElementById('msgErro').innerHTML = 'Digite um código para o produtos';
+            } else if (quantidade === "" || quantidade <= 0) {
                 document.querySelector('#msgErro').innerHTML = 'Digite uma quantidade válida!';
-            } else {
+            }else {
                 document.querySelector('#msgErro').innerHTML = "";
                 produtos[document.getElementById('codigo').value] = document.getElementById('quantidade').value;
                 contador += parseInt(document.getElementById('quantidade').value);
@@ -168,9 +172,14 @@ mais que 10	    5% -->
             }
 
 
+            
+
+
         })
 
         document.getElementById('btFinalizar').addEventListener('click', function () {
+
+            document.getElementById('msgErro').innerHTML = "";
 
             if (contador < 3) {
                 document.querySelector('#totalProdutos').innerHTML = `Produtos adquiridos no total: ${contador}`;
