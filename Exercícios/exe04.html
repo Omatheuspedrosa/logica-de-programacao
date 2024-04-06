@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,6 @@
 
 
     <style>
-
         body {
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
@@ -26,7 +26,7 @@
             width: 300px;
             background-color: white;
             padding: 20px;
-            display: block;
+            /* display: inline; */
             border-radius: 10px;
         }
 
@@ -35,13 +35,17 @@
             display: block;
         }
 
-        input{
+        input#nome {
             height: 25px;
             margin-bottom: 15px;
             border-radius: 5px;
             border: 1px solid black;
             width: calc(100% - 22px);
             padding: 0 10px;
+        }
+
+        .check {
+            margin: 0 10px 20px 0;
         }
 
         button {
@@ -71,40 +75,113 @@
         p {
             margin-top: 15px;
         }
-
     </style>
 
 </head>
+
 <body>
 
     <div>
-        
+
+        <input type="checkbox" class="check" onclick="nomeAleatorio()"><span>Nomes aleatórios</span>
+
         <label for="nome" id="idLabel"><span id="contNomes">1</span>° Nome:</label>
         <input type="text" id="nome">
 
         <br>
 
-        <button type="button" onclick="consultarNome()" id="botaoProximo">Próximo</button>
+        <button type="button" onclick="inserirNome(), nomeAleatorio()" id="botaoProximo">Próximo</button>
         <button type="button" id="botaoFinalizar" disabled onclick="buscarNome()">Finalizar</button>
         <a href="" onclick=""><i class="fa-solid fa-rotate-left" style="color: red;"></i></a>
 
         <p></p>
 
     </div>
-    
+
     <script>
+
+        nome = document.getElementById('nome').value;
+
+        var arrayDeNomes = [
+            "Ana",
+            "João",
+            "Maria",
+            "Pedro",
+            "Juliana",
+            "Lucas",
+            "Carla",
+            "Rodrigo",
+            "Amanda",
+            "Felipe",
+            "Bruna",
+            "Gustavo",
+            "Laura",
+            "Rafael",
+            "Camila",
+            "Diego",
+            "Fernanda",
+            "Matheus",
+            "Patrícia",
+            "Guilherme",
+            "Marcela",
+            "Daniel",
+            "Vanessa",
+            "André",
+            "Carolina",
+            "Thiago",
+            "Natália",
+            "Vinícius",
+            "Larissa",
+            "Renata",
+            "Caio",
+            "Isabela",
+            "Henrique",
+            "Mariana",
+            "Tiago",
+            "Letícia",
+            "Ricardo",
+            "Luana",
+            "Leonardo",
+            "Priscila",
+            "Eduardo",
+            "Beatriz",
+            "Gabriel",
+            "Julia",
+            "Hugo",
+            "Daniela",
+            "Alexandre",
+            "Tatiane"
+        ];
 
         contador = 1;
         nomes = [];
-        function consultarNome() {
-             
+
+        function nomeAleatorio() {
+            var indiceAleatorio = Math.floor(Math.random() * arrayDeNomes.length);
+
+            var stringAleatoria = arrayDeNomes[indiceAleatorio];
+
+            checkbox = document.querySelector('.check');
+
+            if (checkbox.checked && nomes.length < 10) {
+                document.getElementById('nome').value = stringAleatoria;
+
+            } else {
+                document.getElementById('nome').value = "";
+            }
+        }
+
+        function inserirNome() {
+
             if (contador < 10) {
                 nomes.push(document.getElementById('nome').value);
-                nome = document.getElementById('nome').value = "";
-                contador ++;
+                nome.value = "";
+                contador++;
                 document.getElementById('contNomes').innerHTML = `${contador}`;
                 document.getElementById('nome').focus();
-            }else {
+            } else {
+                nomes.push(document.getElementById('nome').value);
+                nome.value = "";
                 document.getElementById('idLabel').innerHTML = "Buscar Nome:";
                 document.getElementById('botaoProximo').disabled = true;
                 document.getElementById('botaoFinalizar').disabled = false;
@@ -116,7 +193,7 @@
             nomeAbuscar = document.getElementById('nome').value;
             if (nomes.includes(nomeAbuscar)) {
                 document.querySelector('p').innerHTML = "Achei 😃";
-            }else {
+            } else {
                 document.querySelector('p').innerHTML = "Não achei 😥";
             }
         }
@@ -126,6 +203,8 @@
             nomes = [];
         }
 
+
     </script>
 </body>
+
 </html>
