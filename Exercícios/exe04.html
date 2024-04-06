@@ -100,8 +100,6 @@
 
     <script>
 
-        nome = document.getElementById('nome').value;
-
         var arrayDeNomes = [
             "Ana",
             "João",
@@ -173,13 +171,20 @@
 
         function inserirNome() {
 
-            if (contador < 10) {
+            nome = document.getElementById('nome').value;
+
+            if (!nome) {
+                document.querySelector('p').innerHTML = "";
+                document.querySelector('p').innerHTML = "Insira um nome!";
+            } else if (contador < 10) {
+                document.querySelector('p').innerHTML = "";
                 nomes.push(document.getElementById('nome').value);
                 nome.value = "";
                 contador++;
                 document.getElementById('contNomes').innerHTML = `${contador}`;
                 document.getElementById('nome').focus();
             } else {
+                document.querySelector('p').innerHTML = "";
                 nomes.push(document.getElementById('nome').value);
                 nome.value = "";
                 document.getElementById('idLabel').innerHTML = "Buscar Nome:";
@@ -191,11 +196,15 @@
 
         function buscarNome() {
             nomeAbuscar = document.getElementById('nome').value;
-            if (nomes.includes(nomeAbuscar)) {
+
+            if(!nomeAbuscar) {
+                document.querySelector('p').innerHTML = "Insira um nome a ser buscado!";
+            }else if (nomes.includes(nomeAbuscar)) {
                 document.querySelector('p').innerHTML = "Achei 😃";
             } else {
                 document.querySelector('p').innerHTML = "Não achei 😥";
             }
+            
         }
 
         function resetar() {
