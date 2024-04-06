@@ -64,8 +64,7 @@
 </head>
 <body> 
 
-    <!-- <button type="button" onclick="calcularIMC()">Calcular IMC</button>
-    <button type="button" onclick="converterTemperatura()">Converter Temperatura</button> -->
+    <h1 style="margin: 0; padding: 0;">Top Programas foda 😎👌</h1>
 
     <h1>Exercícios</h1>
 
@@ -89,7 +88,7 @@
     <label for="altura">Altura:</label>
     <input type="number" id="altura" step="0.01" min="0" max="3">
 
-    <button type="button" onclick="btCalcImc()">Calcular IMC</button>
+    <button type="button" id="btCalcImc">Calcular IMC</button>
     <input type="reset" id="btImcReset">
     <p id="resultadoImc"></p>
 
@@ -125,16 +124,16 @@
     
     
     <!-- <script src="desafio3.js"></script> -->
-    <script src="desafio2.js"></script> 
+    <script src="/Desafios/desafio2.js"></script> 
     
-    <script> // Sript cálculo de IMC
+    <script> // Script cálculo de IMC
 
-        function btCalcImc() {
-            const peso = document.querySelector('#peso').value;
-            const altura = document.querySelector('#altura').value;
+        document.querySelector("#btCalcImc").addEventListener('click', function() {
+            const peso = parseFloat(document.querySelector('#peso').value);
+            const altura = parseFloat(document.querySelector('#altura').value);
             const imc = calcularIMC(peso, altura);
             document.querySelector('#resultadoImc').innerHTML = imc;
-        }
+        })
 
         document.querySelector("#btImcReset").addEventListener('click', function(){
             document.querySelector('#peso').value = "";
