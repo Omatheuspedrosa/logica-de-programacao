@@ -103,7 +103,7 @@
             "Ana", "João", "Maria", "Pedro", "Juliana", "Lucas", "Carla", "Rodrigo", "Amanda", "Felipe", "Bruna", "Gustavo", "Laura", "Rafael", "Camila", "Diego", "Fernanda", "Matheus", "Patrícia", "Guilherme", "Marcela", "Daniel", "Vanessa", "André", "Carolina", "Thiago", "Natália", "Vinícius", "Larissa", "Renata", "Caio", "Isabela", "Henrique", "Mariana", "Tiago", "Letícia", "Ricardo", "Luana", "Leonardo", "Priscila", "Eduardo", "Beatriz", "Gabriel", "Julia", "Hugo", "Daniela", "Alexandre", "Tatiane"];
 
         contador = 1;
-        nomes = [""];
+        nomes = [];
 
         function nomeAleatorio() {
             var indiceAleatorio = Math.floor(Math.random() * arrayDeNomes.length);
@@ -112,32 +112,42 @@
 
             checkbox = document.querySelector('.check');
 
-            if (checkbox.checked && nomes.length < 10) {
+            if (checkbox.checked && contador < 10) {
                 document.getElementById('nome').value = stringAleatoria;
 
-            } else {
+            } else  {
                 document.getElementById('nome').value = "";
             }
         }
 
         function inserirNome() {
 
-            if (nomes.length < 10) {
-                nome = document.getElementById('nome').value;
+            nome = document.getElementById('nome').value;
+
+            if (nomes.length <= 10) {
                 nomes.push(nome);
                 contador++;
                 document.querySelector('#contNomes').innerHTML = contador;
-            }else {
+            } else {
+                document.getElementById('nome').value = "";
                 document.querySelector('label#idLabel').innerHTML = "Buscar nome";
                 document.querySelector('#botaoProximo').innerHTML = "Finalizar";
-                nomeAbuscar = document.getElementById('nome').value;
-                if (nomes.includes(nomeAbuscar)) {
-                    document.querySelector('p').innerHTML = 'Achei!'
-                }else {
-                    document.querySelector('p').innerHTML = 'Não achei!'
-                }
+                document.querySelector('#botaoProximo').setAttribute('onclick', 'buscarNome()');
             }
 
+            console.log(nomes)
+            console.log(contador)
+
+
+        }
+
+        function buscarNome() {
+            nomeAbuscar = document.getElementById('nome').value;
+            if (nomes.includes(nomeAbuscar)) {
+                document.querySelector('p').innerHTML = 'Achei!'
+            } else {
+                document.querySelector('p').innerHTML = 'Não achei!'
+            }
 
         }
 
