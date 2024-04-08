@@ -91,7 +91,6 @@
         <br>
 
         <button type="button" onclick="inserirNome(), nomeAleatorio()" id="botaoProximo">Próximo</button>
-        <button type="button" id="botaoFinalizar" disabled onclick="buscarNome()">Finalizar</button>
         <a href="" onclick=""><i class="fa-solid fa-rotate-left" style="color: red;"></i></a>
 
         <p></p>
@@ -101,58 +100,10 @@
     <script>
 
         var arrayDeNomes = [
-            "Ana",
-            "João",
-            "Maria",
-            "Pedro",
-            "Juliana",
-            "Lucas",
-            "Carla",
-            "Rodrigo",
-            "Amanda",
-            "Felipe",
-            "Bruna",
-            "Gustavo",
-            "Laura",
-            "Rafael",
-            "Camila",
-            "Diego",
-            "Fernanda",
-            "Matheus",
-            "Patrícia",
-            "Guilherme",
-            "Marcela",
-            "Daniel",
-            "Vanessa",
-            "André",
-            "Carolina",
-            "Thiago",
-            "Natália",
-            "Vinícius",
-            "Larissa",
-            "Renata",
-            "Caio",
-            "Isabela",
-            "Henrique",
-            "Mariana",
-            "Tiago",
-            "Letícia",
-            "Ricardo",
-            "Luana",
-            "Leonardo",
-            "Priscila",
-            "Eduardo",
-            "Beatriz",
-            "Gabriel",
-            "Julia",
-            "Hugo",
-            "Daniela",
-            "Alexandre",
-            "Tatiane"
-        ];
+            "Ana", "João", "Maria", "Pedro", "Juliana", "Lucas", "Carla", "Rodrigo", "Amanda", "Felipe", "Bruna", "Gustavo", "Laura", "Rafael", "Camila", "Diego", "Fernanda", "Matheus", "Patrícia", "Guilherme", "Marcela", "Daniel", "Vanessa", "André", "Carolina", "Thiago", "Natália", "Vinícius", "Larissa", "Renata", "Caio", "Isabela", "Henrique", "Mariana", "Tiago", "Letícia", "Ricardo", "Luana", "Leonardo", "Priscila", "Eduardo", "Beatriz", "Gabriel", "Julia", "Hugo", "Daniela", "Alexandre", "Tatiane"];
 
         contador = 1;
-        nomes = [];
+        nomes = [""];
 
         function nomeAleatorio() {
             var indiceAleatorio = Math.floor(Math.random() * arrayDeNomes.length);
@@ -171,40 +122,23 @@
 
         function inserirNome() {
 
-            nome = document.getElementById('nome').value;
-
-            if (!nome) {
-                document.querySelector('p').innerHTML = "";
-                document.querySelector('p').innerHTML = "Insira um nome!";
-            } else if (contador < 10) {
-                document.querySelector('p').innerHTML = "";
-                nomes.push(document.getElementById('nome').value);
-                nome.value = "";
+            if (nomes.length < 10) {
+                nome = document.getElementById('nome').value;
+                nomes.push(nome);
                 contador++;
-                document.getElementById('contNomes').innerHTML = `${contador}`;
-                document.getElementById('nome').focus();
-            } else {
-                document.querySelector('p').innerHTML = "";
-                nomes.push(document.getElementById('nome').value);
-                nome.value = "";
-                document.getElementById('idLabel').innerHTML = "Buscar Nome:";
-                document.getElementById('botaoProximo').disabled = true;
-                document.getElementById('botaoFinalizar').disabled = false;
+                document.querySelector('#contNomes').innerHTML = contador;
+            }else {
+                document.querySelector('label#idLabel').innerHTML = "Buscar nome";
+                document.querySelector('#botaoProximo').innerHTML = "Finalizar";
+                nomeAbuscar = document.getElementById('nome').value;
+                if (nomes.includes(nomeAbuscar)) {
+                    document.querySelector('p').innerHTML = 'Achei!'
+                }else {
+                    document.querySelector('p').innerHTML = 'Não achei!'
+                }
             }
 
-        }
 
-        function buscarNome() {
-            nomeAbuscar = document.getElementById('nome').value;
-
-            if(!nomeAbuscar) {
-                document.querySelector('p').innerHTML = "Insira um nome a ser buscado!";
-            }else if (nomes.includes(nomeAbuscar)) {
-                document.querySelector('p').innerHTML = "Achei 😃";
-            } else {
-                document.querySelector('p').innerHTML = "Não achei 😥";
-            }
-            
         }
 
         function resetar() {
