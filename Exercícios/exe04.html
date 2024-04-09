@@ -91,7 +91,6 @@
         <br>
 
         <button type="button" onclick="inserirNome(), nomeAleatorio()" id="botaoProximo">Próximo</button>
-        <button type="button" id="botaoFinalizar" disabled onclick="buscarNome()">Finalizar</button>
         <a href="" onclick=""><i class="fa-solid fa-rotate-left" style="color: red;"></i></a>
 
         <p></p>
@@ -162,10 +161,10 @@
 
             checkbox = document.querySelector('.check');
 
-            if (checkbox.checked && nomes.length < 10) {
+            if (checkbox.checked && contador < 10) {
                 document.getElementById('nome').value = stringAleatoria;
 
-            } else {
+            } else  {
                 document.getElementById('nome').value = "";
             }
         }
@@ -174,38 +173,31 @@
 
             nome = document.getElementById('nome').value;
 
-            if (!nome) {
-                document.querySelector('p').innerHTML = "";
-                document.querySelector('p').innerHTML = "Insira um nome!";
-            } else if (contador < 10) {
-                document.querySelector('p').innerHTML = "";
-                nomes.push(document.getElementById('nome').value);
-                nome.value = "";
+            if (nomes.length <= 10) {
+                nomes.push(nome);
                 contador++;
-                document.getElementById('contNomes').innerHTML = `${contador}`;
-                document.getElementById('nome').focus();
+                document.querySelector('#contNomes').innerHTML = contador;
             } else {
-                document.querySelector('p').innerHTML = "";
-                nomes.push(document.getElementById('nome').value);
-                nome.value = "";
-                document.getElementById('idLabel').innerHTML = "Buscar Nome:";
-                document.getElementById('botaoProximo').disabled = true;
-                document.getElementById('botaoFinalizar').disabled = false;
+                document.getElementById('nome').value = "";
+                document.querySelector('label#idLabel').innerHTML = "Buscar nome";
+                document.querySelector('#botaoProximo').innerHTML = "Finalizar";
+                document.querySelector('#botaoProximo').setAttribute('onclick', 'buscarNome()');
             }
+
+            console.log(nomes)
+            console.log(contador)
+
 
         }
 
         function buscarNome() {
             nomeAbuscar = document.getElementById('nome').value;
-
-            if(!nomeAbuscar) {
-                document.querySelector('p').innerHTML = "Insira um nome a ser buscado!";
-            }else if (nomes.includes(nomeAbuscar)) {
-                document.querySelector('p').innerHTML = "Achei 😃";
+            if (nomes.includes(nomeAbuscar)) {
+                document.querySelector('p').innerHTML = 'Achei!'
             } else {
-                document.querySelector('p').innerHTML = "Não achei 😥";
+                document.querySelector('p').innerHTML = 'Não achei!'
             }
-            
+
         }
 
         function resetar() {
