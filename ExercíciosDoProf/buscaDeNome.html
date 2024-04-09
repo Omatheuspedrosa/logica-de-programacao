@@ -7,15 +7,30 @@
     <title>Buscar Nome</title>
 </head>
 
+<style>
+    label[for="nome"] {
+        color: rgb(25, 0, 255);
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .oculto {
+        display: none;
+    }
+</style>
+
 <body>
 
     <form action="">
 
-        <label for="nomeInclusao">Nome para incluir: </label>
-        <input type="text" id="nomeInclusao" required autofocus>
+        <label for="nome">Nome para incluir: </label>
+        <input type="text" id="nome" required autofocus>
 
         <button type="reset" id="btCadastrar">Incluir</button>
-        <button type="button" id="btMostrar">Exibir</button>
+
+        <button type="reset" id="btPesquisar" class="oculto">Pesquisar</button>
 
         <div id="resultado"></div>
 
@@ -26,37 +41,48 @@
 
         let nomes = [];
 
+        document.addEventListener('keydown', (evento) => {
+
+            if (evento.key === 'Enter') {
+
+                evento.preventDefault();
+
+                if (nomes.length < 10) {
+
+                    document.querySelector('#btCadastrar').click();
+                } else {
+
+                    document.querySelector('#btPesquisar').click();
+                }
+            }
+        });
+
+
         document.querySelector('#btCadastrar').addEventListener('click', () => {
 
-            if (nomes.length < 10) {
-                nomes.push(document.querySelector('#nomeInclusao').value);
-            }else {
-                
-                if(nomes.includes(document.querySelector('#nomeInclusao').value)) {
+            nomes.push(document.querySelector('#nome').value);
 
-                    console.log('Achei!')
+            if (nomes.length === 10) {
 
-                }else {
+                document.querySelector('label[for="nome"]').innerHTML = "Nome para pesquisar"
 
-                    console.log('Não achei!')
+                document.querySelector('#btCadastrar').classList.add('oculto');
 
-                }
+                document.querySelector('#btPesquisar').classList.remove('oculto');
 
             }
 
-
-
         })
 
-        document.querySelector('#btMostrar').addEventListener('click', () => {
+        document.querySelector('#btPesquisar').addEventListener('click', () => {
 
-            // for(let i = 0; i < nomes.length; i++) {
-            //     document.querySelector('#resultado').innerHTML += nomes[i] + '<br>';
-            // }
+            const nomeBuscado = document.querySelector('#nome').value;
 
-            nomes.forEach((nome) => {
-                document.querySelector('#resultado').innerHTML += nome + '<br>';
-            })
+            if (nomes.includes(nomeBuscado)) {
+                document.querySelector('#resultado').innerHTML = 'Achei!';
+            } else {
+                document.querySelector('#resultado').innerHTML = 'Não achei!';
+            }
 
         })
 

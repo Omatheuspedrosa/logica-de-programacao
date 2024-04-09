@@ -1,5 +1,4 @@
 <!-- Desenvolva um programa que permita a leitura dos nomes de 10 pessoas e armazene os nomes lidos em um vetor. Após isso, o programa deve pertmitir a leitura de mais um nome qualquer para ser efetuada uma busca entre os nomes inseridos anteriormente. O programa deve exibir a mensagem ACHEI caso encontre o nome e NÃO ACHEI caso não encontre o nome. -->
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca de Nome</title>
     <script src="https://kit.fontawesome.com/4d09d0aa20.js" crossorigin="anonymous"></script>
-
-
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -76,136 +73,86 @@
             margin-top: 15px;
         }
     </style>
-
 </head>
 
 <body>
-
     <div>
-
+        
         <input type="checkbox" class="check" onclick="nomeAleatorio()"><span>Nomes aleatórios</span>
-
+        
         <label for="nome" id="idLabel"><span id="contNomes">1</span>° Nome:</label>
         <input type="text" id="nome">
-
+        
         <br>
-
+        
         <button type="button" onclick="inserirNome(), nomeAleatorio()" id="botaoProximo">Próximo</button>
+        <button type="button" id="botaoFinalizar" disabled onclick="buscarNome()">Consultar</button>
+        
         <a href="" onclick=""><i class="fa-solid fa-rotate-left" style="color: red;"></i></a>
-
+        
         <p></p>
-
+    
     </div>
-
-    <script>
-
-        var arrayDeNomes = [
-            "Ana",
-            "João",
-            "Maria",
-            "Pedro",
-            "Juliana",
-            "Lucas",
-            "Carla",
-            "Rodrigo",
-            "Amanda",
-            "Felipe",
-            "Bruna",
-            "Gustavo",
-            "Laura",
-            "Rafael",
-            "Camila",
-            "Diego",
-            "Fernanda",
-            "Matheus",
-            "Patrícia",
-            "Guilherme",
-            "Marcela",
-            "Daniel",
-            "Vanessa",
-            "André",
-            "Carolina",
-            "Thiago",
-            "Natália",
-            "Vinícius",
-            "Larissa",
-            "Renata",
-            "Caio",
-            "Isabela",
-            "Henrique",
-            "Mariana",
-            "Tiago",
-            "Letícia",
-            "Ricardo",
-            "Luana",
-            "Leonardo",
-            "Priscila",
-            "Eduardo",
-            "Beatriz",
-            "Gabriel",
-            "Julia",
-            "Hugo",
-            "Daniela",
-            "Alexandre",
-            "Tatiane",
-            "Camillie"
+   
+   <script>
+       
+       var arrayDeNomes = [
+            "Ana", "João", "Maria", "Pedro", "Juliana", "Lucas", "Carla", "Rodrigo", "Amanda", "Felipe", "Bruna", "Gustavo", "Laura", "Rafael", "Camila", "Diego", "Fernanda", "Matheus", "Patrícia", "Guilherme", "Marcela", "Daniel", "Vanessa", "André", "Carolina", "Thiago", "Natália", "Vinícius", "Larissa", "Renata", "Caio", "Isabela", "Henrique", "Mariana", "Tiago", "Letícia", "Ricardo", "Luana", "Leonardo", "Priscila", "Eduardo", "Beatriz", "Gabriel", "Julia", "Hugo", "Daniela", "Alexandre", "Tatiane", "Camillie"
         ];
 
         contador = 1;
         nomes = [];
-
+        
         function nomeAleatorio() {
             var indiceAleatorio = Math.floor(Math.random() * arrayDeNomes.length);
-
             var stringAleatoria = arrayDeNomes[indiceAleatorio];
-
             checkbox = document.querySelector('.check');
-
-            if (checkbox.checked && contador < 10) {
+            if (checkbox.checked && nomes.length < 10) {
                 document.getElementById('nome').value = stringAleatoria;
-
-            } else  {
-                document.getElementById('nome').value = "";
-            }
-        }
-
-        function inserirNome() {
-
-            nome = document.getElementById('nome').value;
-
-            if (nomes.length <= 10) {
-                nomes.push(nome);
-                contador++;
-                document.querySelector('#contNomes').innerHTML = contador;
             } else {
                 document.getElementById('nome').value = "";
-                document.querySelector('label#idLabel').innerHTML = "Buscar nome";
-                document.querySelector('#botaoProximo').innerHTML = "Finalizar";
-                document.querySelector('#botaoProximo').setAttribute('onclick', 'buscarNome()');
             }
-
-            console.log(nomes)
-            console.log(contador)
-
-
         }
-
+        
+        function inserirNome() {
+            nome = document.getElementById('nome').value;
+            if (!nome) {
+                document.querySelector('p').innerHTML = "";
+                document.querySelector('p').innerHTML = "Insira um nome!";
+            } else if (contador < 10) {
+                document.querySelector('p').innerHTML = "";
+                nomes.push(document.getElementById('nome').value);
+                nome.value = "";
+                contador++;
+                document.getElementById('contNomes').innerHTML = `${contador}`;
+                document.getElementById('nome').focus();
+            } else {
+                document.querySelector('p').innerHTML = "";
+                nomes.push(document.getElementById('nome').value);
+                nome.value = "";
+                document.getElementById('idLabel').innerHTML = "Buscar Nome:";
+                document.getElementById('botaoProximo').disabled = true;
+                document.getElementById('botaoFinalizar').disabled = false;
+            }
+        }
+       
         function buscarNome() {
             nomeAbuscar = document.getElementById('nome').value;
-            if (nomes.includes(nomeAbuscar)) {
-                document.querySelector('p').innerHTML = 'Achei!'
+            if (!nomeAbuscar) {
+                document.querySelector('p').innerHTML = "Insira um nome a ser buscado!";
+            } else if (nomes.includes(nomeAbuscar)) {
+                document.querySelector('p').innerHTML = "Achei 😃";
             } else {
-                document.querySelector('p').innerHTML = 'Não achei!'
+                document.querySelector('p').innerHTML = "Não achei 😥";
             }
 
         }
-
+        
         function resetar() {
             contador = 1;
             nomes = [];
         }
-
-
+    
     </script>
 </body>
 
