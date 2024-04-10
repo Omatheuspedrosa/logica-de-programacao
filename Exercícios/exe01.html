@@ -12,137 +12,97 @@ ladoC < (ladoA + ladoB) -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificar Triângulo</title>
-
-    <style>
-
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        form {
-            display: block;
-            flex-direction: column;
-        }
-
-        input {
-            width: 120px;
-        }
-
-        button {
-            width: 80px;
-            text-align: center;
-            cursor: pointer;
-            margin-top: 40px;
-            margin-left: 20px; 
-        }
-
-        button.btnVerificar {
-            margin-left: 170px;
-            background-color: #1c36fe;
-            color: white;
-            border-radius: 125px;
-            height: 25px;
-        }
-
-        button.btnLimpar {
-            background-color: rgb(255, 0, 0);
-            color: white;
-            border-radius: 125px;
-            height: 25px;
-        }
-
-        #resultado {
-            margin-left: 170px;
-        }
-
-        #triangulo {
-            margin-left: 210px;
-            width: 0;
-            height: 0;
-            border-left: 0 solid transparent;
-            border-right: 0 solid transparent;
-            border-bottom: 0 solid black;
-            margin-top: 20px;
-        }
-    
-    </style>
-
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-    <h1>Classificação de Triângulo</h1>
 
-    <section>
+    <a href="../index.html">↩ Home</a>
+    <h1 class="titulo-pagina">Classificação de um triângulo</h1>
 
-        <form action="">
-            <label for="ladoA">Lado A</label>
-            <input type="number" id="ladoA">
-            <label for="ladoB">Lado B</label>
-            <input type="number" id="ladoB">
-            <label for="ladoC">Lado C</label>
-            <input type="number" id="ladoC"><br>
+    <main>
+
+        <form action=".">
+
+            <div class="elementos-em-linha">
+
+                <div class="controle-form">
+                    <label for="ladoA">Lado A:</label>
+                    <input type="number" id="ladoA" min="0">
+                </div>
+
+                <div class="controle-form">
+                    <label for="ladoB">Lado B:</label>
+                    <input type="number" id="ladoB" min="0">
+                </div>
+
+                <div class="controle-form">
+                    <label for="ladoC">Lado C:</label>
+                    <input type="number" id="ladoC" min="0">
+                </div>
+
+            </div>
+
+            <div class="botoes">
+                <button type="button" id="btClassificar" onclick="verificarTriangulo()">Classificar</button>
+                <button type="reset" id="btLimpar" onclick="resetar()">Limpar</button>
+            </div>
+
         </form>
-        
-        <button type="button" onclick="verificarTriangulo()" class="btnVerificar">Verificar</button>
 
-        <button type="button" onclick="resetar()" class="btnLimpar">Limpar</button>
+        <div id="resultado"></div>
+        <div id="triangulo"></div>
 
-        <p id="resultado"></p>
+    </main>
 
-        <div id="triangulo">
+        <script>
 
-        </div>
+            function verificarTriangulo() {
+                var ladoA = parseFloat(document.getElementById('ladoA').value);
+                var ladoB = parseFloat(document.getElementById('ladoB').value);
+                var ladoC = parseFloat(document.getElementById('ladoC').value);
 
-    </section>
+                if (ladoA < ladoB + ladoC && ladoB < ladoA + ladoC && ladoC < ladoA + ladoB) {
+                    if (ladoA === ladoB && ladoB === ladoC) {
+                        document.getElementById("resultado").innerHTML = "Triângulo Equilátero";
+                    } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
+                        document.getElementById("resultado").innerHTML = 'Triângulo Isósceles';
+                    } else {
+                        document.getElementById("resultado").innerHTML = "Triângulo Escaleno"
+                    }
 
-    <script>
+                    // Representação visual do triângulo
+                    document.getElementById("triangulo").style.borderBottomWidth = ladoA + "px";
+                    document.getElementById("triangulo").style.borderLeftWidth = ladoB + "px";
+                    document.getElementById("triangulo").style.borderRightWidth = ladoC + "px";
 
-        function verificarTriangulo() {
-            var ladoA = parseFloat(document.getElementById('ladoA').value);
-            var ladoB = parseFloat(document.getElementById('ladoB').value);
-            var ladoC = parseFloat(document.getElementById('ladoC').value);
-
-            if (ladoA < ladoB + ladoC && ladoB < ladoA + ladoC && ladoC < ladoA + ladoB)  {
-                if (ladoA === ladoB && ladoB === ladoC) {
-                    document.getElementById("resultado").innerHTML = "Triângulo Equilátero";
-                } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
-                    document.getElementById("resultado").innerHTML = 'Triângulo Isósceles';
-                }else {
-                    document.getElementById("resultado").innerHTML = "Triângulo Escaleno"
+                } else {
+                    document.getElementById("resultado").innerHTML = "Os lados informados não formam um triângulo";
                 }
-
-                // Representação visual do triângulo
-                document.getElementById("triangulo").style.borderBottomWidth = ladoA + "px";
-                document.getElementById("triangulo").style.borderLeftWidth = ladoB + "px";
-                document.getElementById("triangulo").style.borderRightWidth = ladoC + "px";
-
-            }else {
-                document.getElementById("resultado").innerHTML = "Os lados informados não formam um triângulo";
             }
-        }
 
-        function resetar() {
-            
-            // Resetar valores
-            let ladoA = parseFloat(document.getElementById('ladoA').value = "");
-            let ladoB = parseFloat(document.getElementById('ladoB').value = "");
-            let ladoC = parseFloat(document.getElementById('ladoC').value = "");
-            document.getElementById("resultado").innerHTML = "";
+            function resetar() {
 
-            // Resetar representação visual do triângulo
-            document.getElementById("triangulo").style.borderBottomWidth = 0 + "px";
-            document.getElementById("triangulo").style.borderLeftWidth = 0 + "px";
-            document.getElementById("triangulo").style.borderRightWidth = 0 + "px";
+                // Resetar valores
+                let ladoA = parseFloat(document.getElementById('ladoA').value = "");
+                let ladoB = parseFloat(document.getElementById('ladoB').value = "");
+                let ladoC = parseFloat(document.getElementById('ladoC').value = "");
+                document.getElementById("resultado").innerHTML = "";
 
-        }
+                // Resetar representação visual do triângulo
+                document.getElementById("triangulo").style.borderBottomWidth = 0 + "px";
+                document.getElementById("triangulo").style.borderLeftWidth = 0 + "px";
+                document.getElementById("triangulo").style.borderRightWidth = 0 + "px";
 
-    </script>
+            }
+
+        </script>
 </body>
+
 </html>
