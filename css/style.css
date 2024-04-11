@@ -54,12 +54,12 @@ button:hover {
   cursor: pointer;
 }
 
-#btClassificar {
+.acao-positiva {
   background-color: #2078ec;
   color: #ffff;
 }
 
-#btClassificar:hover {
+.acao-positiva:hover {
   background-color: #043b82;
 }
 

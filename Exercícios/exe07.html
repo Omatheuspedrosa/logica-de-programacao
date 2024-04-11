@@ -45,9 +45,10 @@ O usuário deve optar entre [N] Taxa de Natalidade e [M] Taxa de Mortalidade. O 
         }
 
         input.entradas {
-            height: 25px;
+            height: 28px;
             border: 1px solid black;
             border-radius: 10px;
+            padding: 0 6px;
         }
 
         input.ultimo {
@@ -118,20 +119,20 @@ O usuário deve optar entre [N] Taxa de Natalidade e [M] Taxa de Mortalidade. O 
             if (natalidadeCheck.checked) {
 
                 if (nascimentos <= 0 || habitantes <= 0) {
-                    document.getElementById('resultado').innerHTML = 'Para esta opção, você precisa definir número de nascimentos e de habitantes!';
+                    document.getElementById('resultado').innerHTML = 'Para esta opção, você precisa definir um número de nascimentos e de habitantes!';
                 }else {
                     resultado = ((nascimentos * 1000) / habitantes);
-                    document.getElementById('resultado').innerHTML = `Taxa de Natalidade: ${resultado.toFixed(0)} nascimento(s) por mil de habitantes`;
+                    document.getElementById('resultado').innerHTML = `Taxa de natalidade: ${resultado.toFixed(0)} nascimento(s) por mil de habitantes`;
                 }
 
                 
             }else {
 
                 if (obitos <= 0 || habitantes <= 0) {
-                    document.getElementById('resultado').innerHTML = 'Para esta opção, você precisa definir número de nascimentos e de óbitos!';
+                    document.getElementById('resultado').innerHTML = 'Para esta opção, você precisa definir um número de habitantes e de óbitos!';
                 }else {
                     resultado = ((obitos * 1000) / habitantes);
-                    document.getElementById('resultado').innerHTML = `Taxa de Natalidade: ${resultado.toFixed(0)} morte(s) por mil de habitantes`;
+                    document.getElementById('resultado').innerHTML = `Taxa de mortalidade: ${resultado.toFixed(0)} morte(s) por mil de habitantes`;
                 }
             }
 
