@@ -1,37 +1,19 @@
-<!-- Escreva um programa que leia as medidas dos lados de um triângulo e escreva sua classificação de acordo com o tamanho dos seus lados:
-
-Equilátero: todos os lados tem o mesmo tamanho
-Isósceles: dois lados tem o mesmo tamanho, mas o terceiro é diferente
-Escaleno: os três lados do triângulo tem tamanhos diferentes
-Observação: é preciso verificar se os lados informados são realmente de um triângulo, ou seja, se a forma pode ser "fechada". Para isso, os lados da forma devem atender a TODAS as seguintes condições:
-
-ladoA < (ladoB + ladoC)
-ladoB < (ladoA + ladoC)
-ladoC < (ladoA + ladoB) -->
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificar Triângulo</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
     <a href="../index.html">↩ Home</a>
     <h1 class="titulo-pagina">Classificação de um triângulo</h1>
 
-    <a href="../index.html">↩ Home</a>
-    <h1 class="titulo-pagina">Classificação de um triângulo</h1>
-
-    <main>
     <main>
 
         <form action=".">
@@ -56,7 +38,7 @@ ladoC < (ladoA + ladoB) -->
             </div>
 
             <div class="botoes">
-                <button type="button" id="btClassificar" class="acao-positiva" onclick="verificarTriangulo()">Classificar</button>
+                <button type="button" id="btClassificar" onclick="verificarTriangulo()">Classificar</button>
                 <button type="reset" id="btLimpar" onclick="resetar()">Limpar</button>
             </div>
 
@@ -65,19 +47,10 @@ ladoC < (ladoA + ladoB) -->
         <div id="resultado"></div>
         <div id="triangulo"></div>
 
-        <div id="resultado"></div>
-        <div id="triangulo"></div>
-
-    </main>
     </main>
 
         <script>
-        <script>
 
-            function verificarTriangulo() {
-                var ladoA = parseFloat(document.getElementById('ladoA').value);
-                var ladoB = parseFloat(document.getElementById('ladoB').value);
-                var ladoC = parseFloat(document.getElementById('ladoC').value);
             function verificarTriangulo() {
                 var ladoA = parseFloat(document.getElementById('ladoA').value);
                 var ladoB = parseFloat(document.getElementById('ladoB').value);
@@ -91,28 +64,12 @@ ladoC < (ladoA + ladoB) -->
                     } else {
                         document.getElementById("resultado").innerHTML = "Triângulo Escaleno"
                     }
-                if (ladoA < ladoB + ladoC && ladoB < ladoA + ladoC && ladoC < ladoA + ladoB) {
-                    if (ladoA === ladoB && ladoB === ladoC) {
-                        document.getElementById("resultado").innerHTML = "Triângulo Equilátero";
-                    } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
-                        document.getElementById("resultado").innerHTML = 'Triângulo Isósceles';
-                    } else {
-                        document.getElementById("resultado").innerHTML = "Triângulo Escaleno"
-                    }
 
                     // Representação visual do triângulo
                     document.getElementById("triangulo").style.borderBottomWidth = ladoA + "px";
                     document.getElementById("triangulo").style.borderLeftWidth = ladoB + "px";
                     document.getElementById("triangulo").style.borderRightWidth = ladoC + "px";
-                    // Representação visual do triângulo
-                    document.getElementById("triangulo").style.borderBottomWidth = ladoA + "px";
-                    document.getElementById("triangulo").style.borderLeftWidth = ladoB + "px";
-                    document.getElementById("triangulo").style.borderRightWidth = ladoC + "px";
 
-                } else {
-                    document.getElementById("resultado").innerHTML = "Os lados informados não formam um triângulo";
-                }
-            }
                 } else {
                     document.getElementById("resultado").innerHTML = "Os lados informados não formam um triângulo";
                 }
@@ -125,29 +82,15 @@ ladoC < (ladoA + ladoB) -->
                 let ladoB = parseFloat(document.getElementById('ladoB').value = "");
                 let ladoC = parseFloat(document.getElementById('ladoC').value = "");
                 document.getElementById("resultado").innerHTML = "";
-            function resetar() {
 
-                // Resetar valores
-                let ladoA = parseFloat(document.getElementById('ladoA').value = "");
-                let ladoB = parseFloat(document.getElementById('ladoB').value = "");
-                let ladoC = parseFloat(document.getElementById('ladoC').value = "");
-                document.getElementById("resultado").innerHTML = "";
-
-                // Resetar representação visual do triângulo
-                document.getElementById("triangulo").style.borderBottomWidth = 0 + "px";
-                document.getElementById("triangulo").style.borderLeftWidth = 0 + "px";
-                document.getElementById("triangulo").style.borderRightWidth = 0 + "px";
                 // Resetar representação visual do triângulo
                 document.getElementById("triangulo").style.borderBottomWidth = 0 + "px";
                 document.getElementById("triangulo").style.borderLeftWidth = 0 + "px";
                 document.getElementById("triangulo").style.borderRightWidth = 0 + "px";
 
             }
-            }
 
-        </script>
         </script>
 </body>
-
 
 </html>
