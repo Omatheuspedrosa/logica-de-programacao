@@ -16,6 +16,36 @@
             margin-bottom: 10px;
         }
 
+        #lista-de-exercicios {
+            display: flex;
+            justify-content: center;
+        }
+
+        #lista-de-exercicios ol {
+            list-style: none;
+            display: flex;
+        }
+
+        #lista-de-exercicios ol li {
+            margin-right: 25px;
+        }
+
+        #calculadora-conversor {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 2em;
+        }
+
+        #calculadora-imc {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
         button, input[type="reset"] {
             padding: 5px 10px;
             cursor: pointer;
@@ -64,64 +94,71 @@
 </head>
 <body> 
 
-    <h1 style="margin: 0; padding: 0;">Top Programas foda 😎👌</h1>
 
-    <h1>Exercícios</h1>
-
-    <ol>
-        <li><a href="/Exercícios/exe01.html" target="_blank">Classificar Triângulo</a></li>
-        <li><a href="/Exercícios/exe02.html" target="_blank">Descontos</a></li>
-        <li><a href="/Exercícios/exe03.html" target="_blank">Placar de Futebol</a></li>
-        <li><a href="/Exercícios/exe04.html" target="_blank">Busca de Nomes</a></li>
-        <li><a href="/Exercícios/exe05.html" target="_blank">Posto de Gasolina</a></li>
-        <li><a href="/Exercícios/exe06.html" target="_blank">Produtos com Desconto</a></li>
-        <li><a href="/Exercícios/exe07.html" target="_blank">Natalidade e Mortalidade</a></li>
-    </ol>
-
-    <hr>
-
-    <h1>Calculadora IMC</h1>
-
-    <label for="peso">Peso:</label>
-    <input type="number" id="peso" step="0.5" min="30" max="1000">
+    <h1 style="display: flex; justify-content: center;">Exercícios</h1>
     
-    <label for="altura">Altura:</label>
-    <input type="number" id="altura" step="0.01" min="0" max="3">
+    <div id="lista-de-exercicios">
+        <ol>
+            <li><a href="/Exercícios/exe01.html" target="_blank">Classificar Triângulo</a></li>
+            <li><a href="/Exercícios/exe02.html" target="_blank">Descontos</a></li>
+            <li><a href="/Exercícios/exe03.html" target="_blank">Placar de Futebol</a></li>
+            <li><a href="/Exercícios/exe04.html" target="_blank">Busca de Nomes</a></li>
+            <li><a href="/Exercícios/exe05.html" target="_blank">Posto de Gasolina</a></li>
+            <li><a href="/Exercícios/exe06.html" target="_blank">Produtos com Desconto</a></li>
+            <li><a href="/Exercícios/exe07.html" target="_blank">Natalidade e Mortalidade</a></li>
+        </ol>
+    </div>
 
-    <button type="button" id="btCalcImc">Calcular IMC</button>
-    <input type="reset" id="btImcReset">
-    <p id="resultadoImc"></p>
-
-    <hr>
-
-
-    <form action="">
-        <h1>Conversor de Temperatura</h1>
+    <div id="calculadora-conversor">
+        <div id="calculadora-imc"> <!-- Início Calculadora IMC -->
+            <h1>Calculadora IMC</h1>
+    
+            <label for="peso">Peso:</label>
+            <input type="number" id="peso" step="0.5" min="30" max="1000">
+            
+            <label for="altura">Altura:</label>
+            <input type="number" id="altura" step="0.01" min="0" max="3">
         
-        <label for="temperatura">Temperatura:</label>
-        <input type="number" id="temperatura" placeholder="Exemplo: 20.00"><br><br>
-        <label for="escalaAtual">Escala atual:</label>
-        <select name="" id="escalaAtual">
-            <option value="celsius">Celsius</option>
-            <option value="fahrenheit">Fahrenheit</option>
-            <option value="kelvin">Kelvin</option>
-        </select><br><br>
 
-        <label for="conversao">Escala para conversão:</label>
-        <select name="" id="conversao">
-            <option value="celsius">Celsius</option>
-            <option value="fahrenheit">Fahrenheit</option>
-            <option value="kelvin">Kelvin</option>
-        </select>
-    </form>
-
-    <br><button type="button" id="btConvert">Converter</button>
-    <input type="reset" id="btResetConvert">
-
-
-    <p id="saida"></p>
+            <div>
+                <button type="button" id="btCalcImc">Calcular IMC</button>
+                <input type="reset" id="btImcReset">
+            </div>
+            <p id="resultadoImc"></p>
+        </div>
+    
+        <div id="conversor-temperatura">
+            <form action="">
+                <h1>Conversor de Temperatura</h1>
+                
+                <label for="temperatura">Temperatura:</label>
+                <input type="number" id="temperatura" placeholder="Exemplo: 20.00"><br><br>
+                <label for="escalaAtual">Escala atual:</label>
+                <select name="" id="escalaAtual">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                </select><br><br>
+        
+                <label for="conversao">Escala para conversão:</label>
+                <select name="" id="conversao">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                </select>
+            </form>
+        
+            <br><button type="button" id="btConvert">Converter</button>
+            <input type="reset" id="btResetConvert">
+        
+        
+            <p id="saida"></p>
+        </div>
+    </div>
 
     
+    
+
     
     <!-- <script src="desafio3.js"></script> -->
     <script src="/Desafios/desafio2.js"></script> 
