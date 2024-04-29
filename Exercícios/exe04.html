@@ -72,6 +72,11 @@
         p {
             margin-top: 15px;
         }
+
+        #botaoFinalizar {
+            display: none;
+        }
+
     </style>
 </head>
 
@@ -86,7 +91,7 @@
         <br>
         
         <button type="button" onclick="inserirNome(), nomeAleatorio()" id="botaoProximo">Próximo</button>
-        <button type="button" id="botaoFinalizar" disabled onclick="buscarNome()">Consultar</button>
+        <button type="button" id="botaoFinalizar"  onclick="buscarNome()">Consultar</button>
         
         <a href="" onclick=""><i class="fa-solid fa-rotate-left" style="color: red;"></i></a>
         
@@ -131,8 +136,8 @@
                 nomes.push(document.getElementById('nome').value);
                 nome.value = "";
                 document.getElementById('idLabel').innerHTML = "Buscar Nome:";
-                document.getElementById('botaoProximo').disabled = true;
-                document.getElementById('botaoFinalizar').disabled = false;
+                document.getElementById('botaoProximo').style.display = "none";
+                document.getElementById('botaoFinalizar').style.display = "inline";
             }
         }
        
