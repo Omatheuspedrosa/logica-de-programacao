@@ -207,6 +207,7 @@ Gasolina: R$ 5,19 -->
                         document.getElementById('msgErro').innerHTML = "";
                         document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
                         document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('erroLitros').innerHTML = "";
                     }else {
                         gasolina -= 0.3114;
                         total = totalLitros * gasolina;
@@ -214,6 +215,7 @@ Gasolina: R$ 5,19 -->
                         document.getElementById('msgErro').innerHTML = "";
                         document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
                         document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('erroLitros').innerHTML = "";
                     }
                 }else {
                     document.getElementById('msgErro').innerHTML = "Código inválido! informe 'A' para Álcool e 'G' para Gasolina"
