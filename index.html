@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <style>
-
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -46,7 +46,24 @@
             border-radius: 4px;
         }
 
-        button, input[type="reset"] {
+        #conversor-temperatura {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: space-evenly;
+        }
+
+        #conversor-temperatura form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #conversor-temperatura input {
+            width: 150px;
+        }
+
+        button,
+        input[type="reset"] {
             padding: 5px 10px;
             cursor: pointer;
             border: none;
@@ -56,7 +73,8 @@
             margin-right: 10px;
         }
 
-        button:hover, input[type="reset"]:hover {
+        button:hover,
+        input[type="reset"]:hover {
             background-color: #45a049;
         }
 
@@ -68,7 +86,8 @@
             margin-bottom: 5px;
         }
 
-        input[type="number"], select {
+        input[type="number"],
+        select {
             padding: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -88,15 +107,15 @@
         a:hover {
             color: blue;
         }
-
     </style>
 
 </head>
-<body> 
+
+<body>
 
 
     <h1 style="display: flex; justify-content: center;">Exercícios</h1>
-    
+
     <div id="lista-de-exercicios">
         <ol>
             <li><a href="/Exercícios/exe01.html" target="_blank">Classificar Triângulo</a></li>
@@ -112,13 +131,13 @@
     <div id="calculadora-conversor">
         <div id="calculadora-imc"> <!-- Início Calculadora IMC -->
             <h1>Calculadora IMC</h1>
-    
+
             <label for="peso">Peso:</label>
             <input type="number" id="peso" step="0.5" min="30" max="1000">
-            
+
             <label for="altura">Altura:</label>
             <input type="number" id="altura" step="0.01" min="0" max="3">
-        
+
 
             <div>
                 <button type="button" id="btCalcImc">Calcular IMC</button>
@@ -126,53 +145,47 @@
             </div>
             <p id="resultadoImc"></p>
         </div>
-    
+
         <div id="conversor-temperatura">
-            <form action="">
-                <h1>Conversor de Temperatura</h1>
-                
-                <label for="temperatura">Temperatura:</label>
-                <input type="number" id="temperatura" placeholder="Exemplo: 20.00"><br><br>
-                <label for="escalaAtual">Escala atual:</label>
-                <select name="" id="escalaAtual">
-                    <option value="celsius">Celsius</option>
-                    <option value="fahrenheit">Fahrenheit</option>
-                    <option value="kelvin">Kelvin</option>
-                </select><br><br>
-        
-                <label for="conversao">Escala para conversão:</label>
-                <select name="" id="conversao">
-                    <option value="celsius">Celsius</option>
-                    <option value="fahrenheit">Fahrenheit</option>
-                    <option value="kelvin">Kelvin</option>
-                </select>
+
+            <h1>Conversor de temperatura</h1>
+
+            <form>
+
+                <label for="celsius">Celsius</label>
+                <input type="number" id="celsius"><br>
+
+                <label for="fahrenheit">Fahrenheit</label>
+                <input type="number" id="fahrenheit"><br>
+
+                <label for="kelvin">Kelvin</label>
+                <input type="number" id="kelvin">
+
             </form>
-        
-            <br><button type="button" id="btConvert">Converter</button>
             <input type="reset" id="btResetConvert">
-        
-        
+
+
             <p id="saida"></p>
         </div>
     </div>
 
-    
-    
 
-    
+
+
+
     <!-- <script src="desafio3.js"></script> -->
-    <script src="/Desafios/desafio2.js"></script> 
-    
+    <script src="/Desafios/desafio2.js"></script>
+
     <script> // Script cálculo de IMC
 
-        document.querySelector("#btCalcImc").addEventListener('click', function() {
+        document.querySelector("#btCalcImc").addEventListener('click', function () {
             const peso = parseFloat(document.querySelector('#peso').value);
             const altura = parseFloat(document.querySelector('#altura').value);
             const imc = calcularIMC(peso, altura);
             document.querySelector('#resultadoImc').innerHTML = imc;
         })
 
-        document.querySelector("#btImcReset").addEventListener('click', function(){
+        document.querySelector("#btImcReset").addEventListener('click', function () {
             document.querySelector('#peso').value = "";
             document.querySelector('#altura').value = "";
             document.querySelector('#resultadoImc').innerHTML = "";
@@ -182,51 +195,63 @@
 
     <script>// Sript Conversor de temperatura
 
-        document.querySelector('#btConvert').addEventListener('click', function() {
-            let temperatura = parseFloat(document.querySelector('#temperatura').value);
-            const atual = document.querySelector('#escalaAtual').value;
-            const conversao = document.querySelector('#conversao').value;
-            var saida;
-            
+        function celsiusParaFahrenheit(celsius) {
+            calculo = (celsius * 9 / 5) + 32;
+            return calculo.toFixed(2);
+        }
 
-            if (atual === 'celsius') {
-                if (conversao === 'fahrenheit') {
-                    saida = ((temperatura * 9/5) + 32).toFixed(2) + ' °F';
-                }else if (conversao === 'kelvin') {
-                    saida = (temperatura + 273.15).toFixed(2) + ' K';
-                }else if (atual === conversao) {
-                    saida = 'Utilize escalas diferentes!';
-                }  
-            }
+        function celsiusParaKelvin(celsius) {
+            calculo = celsius + 273.15;
+            return calculo.toFixed(2);
+        }
 
-            if (atual === 'fahrenheit') {
-                if (conversao === 'celsius'){
-                    saida = ((temperatura - 32) * 5/9).toFixed(2) + ' °C';
-                }else if (conversao === 'kelvin'){
-                    saida = ((temperatura + 459.67) * 5/9).toFixed(2) + ' K';
-                }else if (atual === conversao) {
-                    saida = 'Utilize escalas diferentes!';
-                }  
-            }
+        function fahrenheitParaCelsius(fahrenheit) {
+            calculo = (fahrenheit - 32) * 5 / 9;
+            return calculo.toFixed(2);
+        }
 
-            if (atual === 'kelvin') {
-                if (conversao === 'celsius'){
-                    saida = (temperatura - 273.15).toFixed(2) + ' °C';
-                }else if (conversao === 'fahrenheit'){
-                    saida = (temperatura * 9/5 - 459,67).toFixed(2) + ' °F';
-                }else if (atual === conversao) {
-                    saida = 'Utilize escalas diferentes!';
-                }  
-            }
+        function fahrenheitParaKelvin(fahrenheit) {
+            calculo = (fahrenheit + 459.67) * 5 / 9;
+            return calculo.toFixed(2);
+        }
 
-            document.querySelector('#saida').innerHTML = saida;
+        function kelvinParaCelsius(kelvin) {
+            calculo = kelvin - 273.15;
+            return calculo.toFixed(2);
+        }
+
+        function kelvinParaFahrenheit(kelvin) {
+            calculo = kelvin * 9 / 5 - 459.67;
+            return calculo.toFixed(2);
+        }
+
+        document.querySelector('#celsius').addEventListener('input', () => {
+            let celsius = parseFloat(document.querySelector('#celsius').value);
+            document.querySelector('#kelvin').value = celsiusParaKelvin(celsius);
+            document.querySelector('#fahrenheit').value = celsiusParaFahrenheit(celsius);
+
         })
 
-        document.querySelector("#btResetConvert").addEventListener('click', function() {
-            document.querySelector('#temperatura').value = "";
-            document.querySelector('#saida').innerHTML = "";
+        document.querySelector('#fahrenheit').addEventListener('input', () => {
+            let fahrenheit = parseFloat(document.querySelector('#fahrenheit').value);;
+            document.querySelector('#celsius').value = fahrenheitParaCelsius(fahrenheit);
+            document.querySelector('#kelvin').value = fahrenheitParaKelvin(fahrenheit);
         })
+
+        document.querySelector('#kelvin').addEventListener('input', () => {
+            let kelvin = parseFloat(document.querySelector('#kelvin').value);;
+            document.querySelector('#celsius').value = kelvinParaCelsius(kelvin);
+            document.querySelector('#fahrenheit').value = kelvinParaFahrenheit(kelvin);
+        })
+
+        document.querySelector("#btResetConvert").addEventListener('click', function () {
+            document.querySelector('#celsius').value = "";
+            document.querySelector('#fahrenheit').value = "";
+            document.querySelector('#kelvin').value = "";
+        })
+
 
     </script>
 </body>
+
 </html>
