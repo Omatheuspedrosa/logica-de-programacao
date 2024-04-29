@@ -189,6 +189,7 @@ Gasolina: R$ 5,19 -->
                         document.getElementById('msgErro').innerHTML = "";
                         document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
                         document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('erroLitros').innerHTML = "";
                     }else {
                         alcool -= 0.1445;
                         total = totalLitros * alcool;
@@ -196,6 +197,7 @@ Gasolina: R$ 5,19 -->
                         document.getElementById('msgErro').innerHTML = "";
                         document.getElementById('codigo').setAttribute("style", "border: 1px solid #a09797;");
                         document.getElementById('litros').setAttribute("style", "border: 1px solid #a09797;");
+                        document.getElementById('erroLitros').innerHTML = "";
                     }
                 }else if (codigo === 'G') {
                     if (totalLitros <= 20){
