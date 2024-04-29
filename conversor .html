@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-    <form action="">
+    <form>
 
         <label for="celsius">Celsius</label>
-        <input type="text" id="celsius">
-        
+        <input type="number" id="celsius">
+
         <label for="fahrenheit">Fahrenheit</label>
-        <input type="text" id="fahrenheit">
-        
+        <input type="number" id="fahrenheit">
+
         <label for="kelvin">Kelvin</label>
-        <input type="text" id="kelvin">
-        
+        <input type="number" id="kelvin">
+
     </form>
-    
+
     <script>
-        let celsius = parseFloat(document.querySelector('#celsius').value);
-        let fahrenheit = parseFloat(document.querySelector('#fahrenheit').value);
-        let kelvin = parseFloat(document.querySelector('#kelvin').value);
 
-        function celsiusParaFahrenheit () {
-            return (celsius * 9 / 5) + 32;
+        function celsiusParaFahrenheit(celsius) {
+            calculo = (celsius * 9 / 5) + 32;
+            return calculo.toFixed(2);
         }
 
-        function celsiusParaKelvin () {
-            return celsius + 273.15;
-        }
-        
-        function fahrenheitParaCelsius () {
-            return (fahrenheit - 32) * 5 / 9;
-        }
-        
-        function fahrenheitParaKelvin () {
-            return (fahrenheit + 459.67) * 5 / 9;
-        }
-        
-        function kelvinParaCelsius () {
-            return kelvin - 273.15;
-        }
-        
-        function kelvinParaFahrenheit () {
-            return kelvin * 9 / 5 - 459.67;
+        function celsiusParaKelvin(celsius) {
+            calculo = celsius + 273.15;
+            return calculo.toFixed(2);
         }
 
-        
+        function fahrenheitParaCelsius(fahrenheit) {
+            calculo = (fahrenheit - 32) * 5 / 9;
+            return calculo.toFixed(2);
+        }
+
+        function fahrenheitParaKelvin(fahrenheit) {
+            calculo = (fahrenheit + 459.67) * 5 / 9;
+            return calculo.toFixed(2);
+        }
+
+        function kelvinParaCelsius(kelvin) {
+            calculo = kelvin - 273.15;
+            return calculo.toFixed(2);
+        }
+
+        function kelvinParaFahrenheit(kelvin) {
+            calculo = kelvin * 9 / 5 - 459.67;
+            return calculo.toFixed(2);
+        }
+
+        document.querySelector('#celsius').addEventListener('input', () => {
+            let celsius = parseFloat(document.querySelector('#celsius').value);
+            document.querySelector('#kelvin').value = celsiusParaKelvin(celsius);
+            document.querySelector('#fahrenheit').value = celsiusParaFahrenheit(celsius);
+
+        })
+
+        document.querySelector('#fahrenheit').addEventListener('input', () => {
+            let fahrenheit = parseFloat(document.querySelector('#fahrenheit').value);;
+            document.querySelector('#celsius').value = fahrenheitParaCelsius(fahrenheit);
+            document.querySelector('#kelvin').value = fahrenheitParaKelvin(fahrenheit);
+        })
+
+        document.querySelector('#kelvin').addEventListener('input', () => {
+            let kelvin = parseFloat(document.querySelector('#kelvin').value);;
+            document.querySelector('#celsius').value = kelvinParaCelsius(kelvin);
+            document.querySelector('#fahrenheit').value = kelvinParaFahrenheit(kelvin);
+        })
+
+
 
 
     </script>
 </body>
+
 </html>
