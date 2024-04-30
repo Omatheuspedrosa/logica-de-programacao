@@ -67,16 +67,16 @@ button:active {
   box-shadow: inset 1px 1px 1px #555;
 }
 
-#btLimpar {
+.acao-alternativa {
   background-color: #ff0000;
   color: #ffff;
 }
 
-#btLimpar:hover {
+.acao-alternativa:hover {
   background-color: #8b0101;
 }
 
-#btLimpar:active {
+.acao-alternativa:active {
   background-color: #710606;
 }
 
