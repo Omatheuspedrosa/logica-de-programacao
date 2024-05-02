@@ -109,3 +109,7 @@ input {
   border-bottom: 0 solid black;
   margin-top: 20px;
 }
+
+.monetario::before {
+  content: "R$ ";
+}
