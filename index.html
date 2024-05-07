@@ -10,6 +10,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f4f4f4;
         }
 
         h1 {
@@ -28,6 +29,30 @@
 
         #lista-de-exercicios ol li {
             margin-right: 25px;
+            background-color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: blue;
+            text-decoration: underline;
         }
 
         #calculadora-conversor {
@@ -38,17 +63,23 @@
         }
 
         #calculadora-imc {
+            background-color: #fff;
+            box-shadow: 2px 2px 4px #888;
+            border-radius: 4px;
             padding: 50px;
             display: flex;
             flex-direction: column;
             gap: 0.5em;
-            border: 1px solid black;
-            border-radius: 4px;
         }
 
         #conversor-temperatura {
             display: flex;
+            background-color: #fff;
             flex-direction: column;
+            /* border: 1px solid black; */
+            border-radius: 4px;
+            box-shadow: 2px 2px 4px #888;
+            padding: 50px;
             /* align-items: center; */
             justify-content: space-evenly;
         }
@@ -78,14 +109,6 @@
             background-color: #45a049;
         }
 
-        ol {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
         input[type="number"],
         select {
             padding: 5px;
@@ -99,14 +122,6 @@
             margin-top: 10px;
         }
 
-        a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: blue;
-        }
     </style>
 
 </head>
