@@ -1,0 +1,16 @@
+@media screen and (max-width: 500px) {
+    #menu {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #lista-de-exercicios{
+        display: none;
+    }
+
+    .menu-suspenso {
+        display: block;
+    }
+}
