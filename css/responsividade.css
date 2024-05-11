@@ -1,4 +1,4 @@
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
 
     #menu {
         width: 100%;
@@ -45,7 +45,7 @@
         color: #fff;
     }
 
-    #calculadora-conversor {
+    #container-principal {
         flex-direction: column;
         padding: 20px;
     }
