@@ -1,16 +1,52 @@
 @media screen and (max-width: 500px) {
+
     #menu {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: space-between;
+        align-items: flex-start;
     }
 
-    #lista-de-exercicios{
+    .titulo {
+        order: 0;
+    }
+
+    #lista-de-exercicios {
         display: none;
+        order: 2;
+    }
+
+    #lista-de-exercicios ol {
+        list-style: none;
+        display: block;
+        padding-left: 0;
+    }
+
+    #lista-de-exercicios ol li {
+        display: block;
     }
 
     .menu-suspenso {
+        position: absolute;
+        top: 0.7rem;
+        margin-right: 0.1rem;
+        align-self: self-end;
+        order: 1;
         display: block;
+    }
+
+    .menu-suspenso:hover {
+        cursor: pointer;
+    }
+
+    .menu-suspenso .menu-hamburguer {
+        color: #fff;
+    }
+
+    #calculadora-conversor {
+        flex-direction: column;
+        padding: 20px;
     }
 }

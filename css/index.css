@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    margin: 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+#lista-de-exercicios {
+    display: flex;
+    justify-content: center;
+}
+
+#lista-de-exercicios ol {
+    list-style: none;
+    display: flex;
+    padding-left: 20px;
+}
+
+#lista-de-exercicios ol li {
+    margin-right: 25px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    height: 1.5rem;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
+}
+
+a.active {
+    color: #ffea30;
+}
+
+a:hover {
+    border-bottom: 2px solid #ffea30;
+}
+
+.menu-suspenso {
+    display: none;
+}
+
+#calculadora-conversor {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 2em;
+}
+
+#calculadora-imc {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+#conversor-temperatura {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    border-radius: 6px;
+    padding: 50px;
+    justify-content: space-evenly;
+}
+
+#conversor-temperatura form {
+    display: flex;
+    flex-direction: column;
+}
+
+#conversor-temperatura input {
+    width: 150px;
+}
+
+label {
+    font-size: 18px;
+}
+
+button,
+input[type="reset"] {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 10px;
+}
+
+button:hover,
+input[type="reset"]:hover {
+    background-color: #45a049;
+}
+
+input[type="number"],
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 10px;
+}
