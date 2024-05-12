@@ -1,4 +1,4 @@
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
 
     #menu {
         width: 100%;
@@ -26,6 +26,10 @@
 
     #lista-de-exercicios ol li {
         display: block;
+    }
+
+    #lista-de-exercicios ol li:not(:last-child)::after {
+        content: "";
     }
 
     .menu-suspenso {

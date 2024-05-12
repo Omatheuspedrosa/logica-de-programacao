@@ -37,12 +37,17 @@ body {
 }
 
 #lista-de-exercicios ol li {
-    margin-right: 25px;
+    margin-right: 10px;
     border-radius: 5px;
     display: inline-flex;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 5px;
+}
 
+#lista-de-exercicios ol li:not(:last-child)::after {
+    content: "/";
+    margin-left: 0.5rem;
+    color: #fff;
 }
 
 a {
@@ -67,11 +72,16 @@ a:hover {
     display: none;
 }
 
-#calculadora-conversor {
+main {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     gap: 2em;
+}
+
+.titulo-da-pagina {
+    color: #333;
+    text-align: center;
 }
 
 #calculadora-imc {
@@ -81,6 +91,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    box-shadow: 4px 4px 4px #888;
 }
 
 #conversor-temperatura {
@@ -90,6 +101,7 @@ a:hover {
     border-radius: 6px;
     padding: 50px;
     justify-content: space-evenly;
+    box-shadow: 4px 4px 4px #888;
 }
 
 #conversor-temperatura form {
@@ -100,6 +112,27 @@ a:hover {
 #conversor-temperatura input {
     width: 150px;
 }
+
+#conteudo-principal {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    box-shadow: 4px 4px 4px #888;
+}
+
+#triangulo {
+    margin-left: 210px;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-left: 0 solid transparent;
+    border-right: 0 solid transparent;
+    border-bottom: 0 solid black;
+    margin-top: 20px;
+  }
 
 label {
     font-size: 18px;

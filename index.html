@@ -36,9 +36,9 @@
 
 
 
-    <div id="calculadora-conversor">
+    <main id="calculadora-conversor">
         <div id="calculadora-imc"> <!-- Início Calculadora IMC -->
-            <h1>Calculadora IMC</h1>
+            <h1 class="titulo-da-pagina">Calculadora IMC</h1>
 
             <label for="peso">Peso:</label>
             <input type="number" id="peso" step="0.5" min="30" max="1000">
@@ -56,7 +56,7 @@
 
         <div id="conversor-temperatura">
 
-            <h1>Conversor de temperatura</h1>
+            <h1 class="titulo-da-pagina">Conversor de temperatura</h1>
 
             <form>
 
@@ -75,7 +75,7 @@
 
             <p id="saida"></p>
         </div>
-    </div>
+    </main>
 
     <!-- <script src="desafio3.js"></script> -->
     <script src="/Desafios/desafio2.js"></script>
@@ -113,7 +113,7 @@
         }
 
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 500) {
+            if (window.innerWidth > 800) {
                 menu.style.display = 'flex';
             } else {
                 menu.style.display = 'none';
