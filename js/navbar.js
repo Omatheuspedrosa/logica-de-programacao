@@ -28,9 +28,16 @@ function criaLi(ancora) {
 
 function criaUl(ancoras) {
 
-    const ul = document.createElement(ul);
+    const ul = document.createElement('ul');
     ancoras.forEach(ancora => {
-        
+        const a = criaAncora(ancora.url, ancora.texto);
+        const li = criaLi(a);
+        ul.appendChild(li);
     });
 
+    return ul;;
+
 };
+
+const nav = document.createElement('nav');
+nav.appendChild(criaUl(ancoras));
