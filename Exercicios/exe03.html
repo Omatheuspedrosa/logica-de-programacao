@@ -2,89 +2,55 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo de Futebol</title>
-
-    <style>
-
-        body {
-            height: 97vh;
-            background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p1/566720-fundo-de-futebol-vetor.jpg);
-            background-size: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        #container {
-            background-color: rgb(251, 244, 244);
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            border: 3px solid black;
-            border-radius: 50px;
-            padding: 30px 50px;
-        }
-
-        #container div{
-            /* display: flex; */
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        input {
-            height: 25px;
-            width: 40px;
-        }
-
-        button {
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        #resultado {
-            margin-top: 10px;
-        }
-
-
-    </style>
+    <script src="/js/linksEstilos.js"></script>
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/4d09d0aa20.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
+
+    <main>
+
+        <div id="jogo-de-futebol">
+
+            <h1>Placar de futebol</h1>
     
-    <div id="container">
-
-        <h1>Placar de futebol</h1>
-
-        <div>
-
-            <label for="time1">Time 1</label>
-            <input type="number" min="0" id="time1">
-            
-            <p style="display: inline;">X</p>
-            
-            <input type="number" min="0" id="time2">
-            <label for="time2">Time 2</label>
-
+            <div>
+    
+                <label for="time1">Time 1</label>
+                <input type="number" min="0" id="time1">
+    
+                <p style="display: inline;">X</p>
+    
+                <input type="number" min="0" id="time2">
+                <label for="time2">Time 2</label>
+    
+            </div>
+    
+            <br>
+    
+            <button type="button" onclick="placar()">Resultado</button>
+    
+            <br>
+    
+            <span id="resultado"></span>
+    
         </div>
 
-        <br>
+    </main>
 
-        <button type="button" onclick="placar()">Resultado</button>
-
-        <br>
-
-        <span id="resultado"></span>
-
-    </div>
+    <script src="/js/navbar.js"></script>
 
     <script>
 
         function placar() {
-            
+
             let time1 = parseInt(document.getElementById('time1').value);
             let time2 = parseInt(document.getElementById('time2').value);
 
@@ -92,30 +58,27 @@
                 resultado = document.getElementById('resultado').innerHTML = "Digite um número de gols válido ao time 1!";
                 document.getElementById('time1').setAttribute('style', "border: 1px solid red");
                 document.getElementById('time2').setAttribute('style', "border: 1px solid black");
-            }else if (isNaN(time2) || time2 < 0){
+            } else if (isNaN(time2) || time2 < 0) {
                 resultado = document.getElementById('resultado').innerHTML = "Digite um número de gols válido ao time 2!";
                 document.getElementById('time2').setAttribute('style', "border: 1px solid red");
                 document.getElementById('time1').setAttribute('style', "border: 1px solid black");
-            }else if (time1 > time2) {
+            } else if (time1 > time2) {
                 resultado = document.getElementById('resultado').innerHTML = "Vitória do time 1";
                 document.getElementById('time1').setAttribute('style', "border: 2px solid green");
                 document.getElementById('time2').setAttribute('style', "border: 2px solid red");
-            }else if (time2 > time1) {
+            } else if (time2 > time1) {
                 resultado = document.getElementById('resultado').innerHTML = "Vitória do time 2";
                 document.getElementById('time1').setAttribute('style', "border: 2px solid red");
                 document.getElementById('time2').setAttribute('style', "border: 2px solid green");
-            }else {
+            } else {
                 resultado = document.getElementById('resultado').innerHTML = "Empate";
                 document.getElementById('time1').setAttribute('style', "border: 2px solid yellow");
                 document.getElementById('time2').setAttribute('style', "border: 2px solid yellow    ");
             }
-            
-            
-            
-            
-          
+
         }
 
     </script>
 </body>
+
 </html>

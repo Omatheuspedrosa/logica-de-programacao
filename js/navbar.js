@@ -2,14 +2,14 @@ const icone = document.createElement('i');
 icone.classList.add('fa-solid', 'fa-house');
 
 const ancoras = [
-    { "url": "index.html", "text": icone },
-    { "url": "/Exercícios/exe01.html", "text": "Classificar Triângulo" },
-    { "url": "/Exercícios/exe02.html", "text": "Descontos" },
-    { "url": "/Exercícios/exe03.html", "text": "Placar de Futebol" },
-    { "url": "/Exercícios/exe04.html", "text": "Busca de Nomes" },
-    { "url": "/Exercícios/exe05.html", "text": "Posto de Gasolina" },
-    { "url": "/Exercícios/exe06.html", "text": "Produtos com Desconto" },
-    { "url": "/Exercícios/exe07.html", "text": "Natalidade e Mortalidade" }
+    { "url": "/index.html", "text": icone },
+    { "url": "/Exercicios/exe01.html", "text": "Classificar Triângulo" },
+    { "url": "/Exercicios/exe02.html", "text": "Descontos" },
+    { "url": "/Exercicios/exe03.html", "text": "Placar de Futebol" },
+    { "url": "/Exercicios/exe04.html", "text": "Busca de Nomes" },
+    { "url": "/Exercicios/exe05.html", "text": "Posto de Gasolina" },
+    { "url": "/Exercicios/exe06.html", "text": "Produtos com Desconto" },
+    { "url": "/Exercicios/exe07.html", "text": "Natalidade e Mortalidade" }
 ];
 
 function criaAncora(url, texto) {

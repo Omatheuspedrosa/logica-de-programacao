@@ -114,6 +114,7 @@ main {
 }
 
 #conteudo-principal {
+    max-width: 600px;
     background-color: #fff;
     border-radius: 5px;
     padding: 50px;
@@ -132,10 +133,32 @@ main {
     border-right: 0 solid transparent;
     border-bottom: 0 solid black;
     margin-top: 20px;
-  }
+}
+
+table {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
 
 label {
     font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #333;
 }
 
 button,
@@ -156,13 +179,306 @@ input[type="reset"]:hover {
 
 input[type="number"],
 select {
-    padding: 5px;
+    padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 150px;
+    width: 100%;
+    margin: 5px 0 5px 0;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 p {
     margin-top: 10px;
+}
+
+.resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    color: green;
+}
+
+.erro {
+    margin-top: 20px;
+    font-size: 18px;
+    color: red;
+}
+
+/* Jogo de futebol */
+
+#jogo-de-futebol {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid black;
+    border-radius: 50px;
+    padding: 30px 50px;
+}
+
+#jogo-de-futebol input {
+    height: 25px;
+    width: 50px;
+}
+
+#jogo-de-futebol button {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#jogo-de-futebol #resultado {
+    margin-top: 10px;
+}
+
+/* Busca de nome */
+.busca-de-nome {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(235, 229, 229);
+}
+
+.container-nome {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    /* display: inline; */
+    border-radius: 10px;
+}
+
+.container-nome input.check {
+    width: auto;
+}
+
+#botaoFinalizar {
+    display: none;
+}
+
+.check {
+    margin: 0 10px 20px 0;
+}
+
+input#nome {
+    height: 25px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: calc(100% - 22px);
+    padding: 0 10px;
+}
+
+.container-nome label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+a[href=""] {
+    border: none;
+}
+
+/* Posto */
+.posto {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.posto h1 {
+    display: inline;
+}
+
+.posto div i {
+    display: inline;
+    margin-right: 10px;
+}
+
+.posto table {
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.posto th {
+    border: 1px solid #ddd;
+    /* padding: 8px; */
+    text-align: left;
+}
+
+.posto td {
+    border: 1px solid #ddd;
+    /* padding: 8px; */
+    text-align: center;
+}
+
+.posto th {
+    background-color: #f2f2f2;
+}
+
+.posto input {
+    width: 100%;
+    height: 20px;
+    border: 1px solid #a09797;
+    border-radius: 5px;
+}
+
+.posto button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.posto button.btLimpar {
+    background-color: white;
+    border: none;
+    color: #ff0000;
+}
+
+.posto button:hover,
+.btLimpar:hover {
+    color: #c7bcbc;
+}
+
+.posto #resultado {
+    color: green;
+}
+
+.posto #msgErro {
+    color: red;
+}
+
+.posto #erroLitros {
+    color: red;
+}
+
+.posto p {
+    font-weight: bold;
+}
+
+/* Produtos com desconto */
+.exercicio06 {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.exercicio06 label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.exercicio06 #codigo{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.exercicio06 button {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exercicio06 button:hover {
+    background-color: #0056b3;
+}
+
+.exercicio06 #msgErro {
+    color: red;
+    font-weight: bold;
+}
+
+.exercicio06 th {
+    background-color: #04AA6D;
+    ;
+    color: white;
+}
+
+.exercicio06 table,
+th,
+td {
+    border: 1px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+    padding: 8px;
+}
+
+/* Exercício 07 */
+.exe07 {
+    background-color: #f3eeee;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: auto;
+}
+
+.exercicio07 {
+    background-color: #dfdcdc;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 15px 20px;
+}
+
+.exercicio07 h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.exercicio07 label,
+input.entradas {
+    width: 99%;
+    /* display: block; */
+    margin-bottom: 25px;
+}
+
+.exercicio07 input.entradas {
+    height: 28px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0 6px;
+}
+
+.exercicio07 input.ultimo {
+    margin-bottom: 5px;
+}
+
+.exercicio07 .customisar {
+    height: 15px;
+    width: 15px;
+}
+
+.exercicio07 button {
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.exercicio07 button:hover {
+    background-color: #dfdcdc;
 }
