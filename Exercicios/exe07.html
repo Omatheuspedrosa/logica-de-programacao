@@ -7,104 +7,51 @@ O usuário deve optar entre [N] Taxa de Natalidade e [M] Taxa de Mortalidade. O 
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natalidade e Mortalidade</title>
-
-    <style>
-
-        body {
-            background-color: #f3eeee;
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        div {
-            background-color: #dfdcdc;
-            max-width: 500px;
-            margin: 20px auto;
-            border: 1px solid black;
-            border-radius: 4px;
-            padding: 15px 20px;
-        }
-
-        div h3 {
-            text-align: center;
-            margin-top: 0;
-        }
-
-        label, input.entradas {
-            width: 99%;
-            /* display: block; */
-            margin-bottom: 25px;
-        }
-
-        input.entradas {
-            height: 28px;
-            border: 1px solid black;
-            border-radius: 10px;
-            padding: 0 6px;
-        }
-
-        input.ultimo {
-            margin-bottom: 5px;
-        }
-
-        .customisar {
-            height: 15px;
-            width: 15px;
-        }
-
-        button {
-            width: 100px;
-            height: 40px;
-            cursor: pointer;
-            margin-top: 20px;
-            border: 1px solid black;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #dfdcdc;
-        }
-
-    </style>
-
+    <script src="/js/linksEstilos.js"></script>
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/4d09d0aa20.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-    <div>
+    <main class="exe07">
+        <div class="exercicio07">
 
-        <h3>Taxa de Natalidade e Mortalidade</h3>
+            <h3>Taxa de Natalidade e Mortalidade</h3>
 
-        <label for="nHabitantes">Número de Habitantes:</label><br>
-        <input type="number" min="0" id="nHabitantes" class="entradas"><br>
+            <label for="nHabitantes">Número de Habitantes:</label><br>
+            <input type="number" min="0" id="nHabitantes" class="entradas"><br>
 
-        <label for="nNascimentos">Número de nascimentos:</label><br>
-        <input type="number" min="0" id="nNascimentos" class="entradas"><br>
+            <label for="nNascimentos">Número de nascimentos:</label><br>
+            <input type="number" min="0" id="nNascimentos" class="entradas"><br>
 
-        <label for="nObitos">Número de óbitos:</label><br>
-        <input type="number" min="0" id="nObitos" class="ultimo entradas"><br><br>
+            <label for="nObitos">Número de óbitos:</label><br>
+            <input type="number" min="0" id="nObitos" class="ultimo entradas"><br><br>
 
-        <!--  -->
-        <input type="radio" name="escolha" id="natalidade" value="natalidade" class="customisar" oninput="consultar()">
-        <label for="natalidade">Taxa de natalidade</label>
+            <!--  -->
+            <input type="radio" name="escolha" id="natalidade" value="natalidade" class="customisar"
+                oninput="consultar()">
+            <label for="natalidade">Taxa de natalidade</label>
 
-        <input type="radio" name="escolha" id="mortalidade" value="mortalidade" class="customisar" oninput="consultar()">
-        <label for="mortalidade">Taxa de mortalidade</label><br>
+            <input type="radio" name="escolha" id="mortalidade" value="mortalidade" class="customisar"
+                oninput="consultar()">
+            <label for="mortalidade">Taxa de mortalidade</label><br>
 
-        <p id="resultado"></p>
+            <p id="resultado"></p>
 
 
-        <button type="button" onclick="limpar()">Limpar tudo</button>
-   
-    </div>
-    
+            <button type="button" onclick="limpar()">Limpar tudo</button>
+
+        </div>
+    </main>
+
+    <script src="/js/navbar.js"></script>
+
     <script>
 
         function consultar() {
@@ -120,17 +67,17 @@ O usuário deve optar entre [N] Taxa de Natalidade e [M] Taxa de Mortalidade. O 
 
                 if (nascimentos <= 0 || habitantes <= 0) {
                     document.getElementById('resultado').innerHTML = 'Para esta opção, você precisa definir um número de nascimentos e de habitantes!';
-                }else {
+                } else {
                     resultado = ((nascimentos * 1000) / habitantes);
                     document.getElementById('resultado').innerHTML = `Taxa de natalidade: ${resultado.toFixed(0)} nascimento(s) por mil de habitantes`;
                 }
 
-                
-            }else {
+
+            } else {
 
                 if (obitos <= 0 || habitantes <= 0) {
                     document.getElementById('resultado').innerHTML = 'Para esta opção, você precisa definir um número de habitantes e de óbitos!';
-                }else {
+                } else {
                     resultado = ((obitos * 1000) / habitantes);
                     document.getElementById('resultado').innerHTML = `Taxa de mortalidade: ${resultado.toFixed(0)} morte(s) por mil de habitantes`;
                 }
@@ -138,7 +85,7 @@ O usuário deve optar entre [N] Taxa de Natalidade e [M] Taxa de Mortalidade. O 
 
         }
 
-        function limpar(){
+        function limpar() {
             document.getElementById('nHabitantes').value = "";
             document.getElementById('nNascimentos').value = "";
             document.getElementById('nObitos').value = "";
@@ -149,4 +96,5 @@ O usuário deve optar entre [N] Taxa de Natalidade e [M] Taxa de Mortalidade. O 
 
     </script>
 </body>
+
 </html>

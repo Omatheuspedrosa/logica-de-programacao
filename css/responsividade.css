@@ -28,6 +28,10 @@
         display: block;
     }
 
+    #lista-de-exercicios ol li:not(:last-child)::after {
+        content: "";
+    }
+
     .menu-suspenso {
         position: absolute;
         top: 0.7rem;

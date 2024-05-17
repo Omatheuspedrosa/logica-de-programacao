@@ -4,41 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/responsividade.css">
+    <title>Lógica de Programação</title>
+    <script src="js/linksEstilos.js"></script>
     <!-- Ícones -->
     <script src="https://kit.fontawesome.com/4d09d0aa20.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
 
-    <nav id="menu">
-        <h1 class="titulo">Programinhas</h1>
-
-        <div id="lista-de-exercicios">
-            <ol>
-                <li><a href="index.html" target="_blank" class="active"><i class="fa-solid fa-house"></i></a></li>
-                <li><a href="/Exercícios/exe01.html" target="_blank">Classificar Triângulo</a></li>
-                <li><a href="/Exercícios/exe02.html" target="_blank">Descontos</a></li>
-                <li><a href="/Exercícios/exe03.html" target="_blank">Placar de Futebol</a></li>
-                <li><a href="/Exercícios/exe04.html" target="_blank">Busca de Nomes</a></li>
-                <li><a href="/Exercícios/exe05.html" target="_blank">Posto de Gasolina</a></li>
-                <li><a href="/Exercícios/exe06.html" target="_blank">Produtos com Desconto</a></li>
-                <li><a href="/Exercícios/exe07.html" target="_blank">Natalidade e Mortalidade</a></li>
-            </ol>
-        </div>
-        <div class="menu-suspenso">
-            <button class="menu-hamburguer" onclick="menuOnOff()"><i class="fa-solid fa-bars fa-2x"></i></button>
-        </div>
-    </nav>
-
-
-
-    <div id="calculadora-conversor">
+    <main id="calculadora-conversor">
         <div id="calculadora-imc"> <!-- Início Calculadora IMC -->
-            <h1>Calculadora IMC</h1>
+            <h1 class="titulo-da-pagina">Calculadora IMC</h1>
 
             <label for="peso">Peso:</label>
             <input type="number" id="peso" step="0.5" min="30" max="1000">
@@ -56,7 +32,7 @@
 
         <div id="conversor-temperatura">
 
-            <h1>Conversor de temperatura</h1>
+            <h1 class="titulo-da-pagina">Conversor de temperatura</h1>
 
             <form>
 
@@ -75,7 +51,9 @@
 
             <p id="saida"></p>
         </div>
-    </div>
+    </main>
+
+    <script src="js/navbar.js"></script>
 
     <!-- <script src="desafio3.js"></script> -->
     <script src="/Desafios/desafio2.js"></script>
@@ -97,31 +75,8 @@
 
     </script>
 
-    <script>
+    <script> // Conversor de temperatura
 
-        menu = document.querySelector('#lista-de-exercicios');
-
-        function menuOnOff() {
-
-            estilo = window.getComputedStyle(menu);
-
-            if (estilo.display === 'none') {
-                menu.style.display = 'flex';
-            } else {
-                menu.style.display = 'none';
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 800) {
-                menu.style.display = 'flex';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-
-
-        // Conversor de temperatura
         function celsiusParaFahrenheit(celsius) {
             calculo = (celsius * 9 / 5) + 32;
             return calculo.toFixed(2);
